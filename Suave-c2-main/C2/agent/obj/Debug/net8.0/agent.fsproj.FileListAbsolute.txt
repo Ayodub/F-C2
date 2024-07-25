@@ -1,0 +1,58 @@
+C:\Users\61423\Desktop\F# projects\C2\agent\obj\Debug\net8.0\agent.fsproj.AssemblyReference.cache
+C:\Users\61423\Desktop\F# projects\C2\agent\obj\Debug\net8.0\agent.AssemblyInfoInputs.cache
+C:\Users\61423\Desktop\F# projects\C2\agent\obj\Debug\net8.0\agent.AssemblyInfo.fs
+C:\Users\61423\Desktop\F# projects\C2\agent\obj\Debug\net8.0\agent.fsproj.CoreCompileInputs.cache
+C:\Users\61423\Desktop\F# projects\C2\agent\bin\Debug\net8.0\agent.exe
+C:\Users\61423\Desktop\F# projects\C2\agent\bin\Debug\net8.0\agent.deps.json
+C:\Users\61423\Desktop\F# projects\C2\agent\bin\Debug\net8.0\agent.runtimeconfig.json
+C:\Users\61423\Desktop\F# projects\C2\agent\bin\Debug\net8.0\agent.dll
+C:\Users\61423\Desktop\F# projects\C2\agent\bin\Debug\net8.0\agent.pdb
+C:\Users\61423\Desktop\F# projects\C2\agent\bin\Debug\net8.0\FSharp.Core.dll
+C:\Users\61423\Desktop\F# projects\C2\agent\bin\Debug\net8.0\cs\FSharp.Core.resources.dll
+C:\Users\61423\Desktop\F# projects\C2\agent\bin\Debug\net8.0\de\FSharp.Core.resources.dll
+C:\Users\61423\Desktop\F# projects\C2\agent\bin\Debug\net8.0\es\FSharp.Core.resources.dll
+C:\Users\61423\Desktop\F# projects\C2\agent\bin\Debug\net8.0\fr\FSharp.Core.resources.dll
+C:\Users\61423\Desktop\F# projects\C2\agent\bin\Debug\net8.0\it\FSharp.Core.resources.dll
+C:\Users\61423\Desktop\F# projects\C2\agent\bin\Debug\net8.0\ja\FSharp.Core.resources.dll
+C:\Users\61423\Desktop\F# projects\C2\agent\bin\Debug\net8.0\ko\FSharp.Core.resources.dll
+C:\Users\61423\Desktop\F# projects\C2\agent\bin\Debug\net8.0\pl\FSharp.Core.resources.dll
+C:\Users\61423\Desktop\F# projects\C2\agent\bin\Debug\net8.0\pt-BR\FSharp.Core.resources.dll
+C:\Users\61423\Desktop\F# projects\C2\agent\bin\Debug\net8.0\ru\FSharp.Core.resources.dll
+C:\Users\61423\Desktop\F# projects\C2\agent\bin\Debug\net8.0\tr\FSharp.Core.resources.dll
+C:\Users\61423\Desktop\F# projects\C2\agent\bin\Debug\net8.0\zh-Hans\FSharp.Core.resources.dll
+C:\Users\61423\Desktop\F# projects\C2\agent\bin\Debug\net8.0\zh-Hant\FSharp.Core.resources.dll
+C:\Users\61423\Desktop\F# projects\C2\agent\obj\Debug\net8.0\agent.fsproj.Up2Date
+C:\Users\61423\Desktop\F# projects\C2\agent\obj\Debug\net8.0\agent.dll
+C:\Users\61423\Desktop\F# projects\C2\agent\obj\Debug\net8.0\refint\agent.dll
+C:\Users\61423\Desktop\F# projects\C2\agent\obj\Debug\net8.0\agent.pdb
+C:\Users\61423\Desktop\F# projects\C2\agent\obj\Debug\net8.0\agent.genruntimeconfig.cache
+C:\Users\61423\Desktop\F# projects\C2\agent\obj\Debug\net8.0\ref\agent.dll
+C:\Users\61423\Desktop\Suave-c2-main\Suave-c2-main\C2\agent\bin\Debug\net8.0\agent.exe
+C:\Users\61423\Desktop\Suave-c2-main\Suave-c2-main\C2\agent\bin\Debug\net8.0\agent.deps.json
+C:\Users\61423\Desktop\Suave-c2-main\Suave-c2-main\C2\agent\bin\Debug\net8.0\agent.runtimeconfig.json
+C:\Users\61423\Desktop\Suave-c2-main\Suave-c2-main\C2\agent\bin\Debug\net8.0\agent.dll
+C:\Users\61423\Desktop\Suave-c2-main\Suave-c2-main\C2\agent\bin\Debug\net8.0\agent.pdb
+C:\Users\61423\Desktop\Suave-c2-main\Suave-c2-main\C2\agent\bin\Debug\net8.0\FSharp.Core.dll
+C:\Users\61423\Desktop\Suave-c2-main\Suave-c2-main\C2\agent\bin\Debug\net8.0\cs\FSharp.Core.resources.dll
+C:\Users\61423\Desktop\Suave-c2-main\Suave-c2-main\C2\agent\bin\Debug\net8.0\de\FSharp.Core.resources.dll
+C:\Users\61423\Desktop\Suave-c2-main\Suave-c2-main\C2\agent\bin\Debug\net8.0\es\FSharp.Core.resources.dll
+C:\Users\61423\Desktop\Suave-c2-main\Suave-c2-main\C2\agent\bin\Debug\net8.0\fr\FSharp.Core.resources.dll
+C:\Users\61423\Desktop\Suave-c2-main\Suave-c2-main\C2\agent\bin\Debug\net8.0\it\FSharp.Core.resources.dll
+C:\Users\61423\Desktop\Suave-c2-main\Suave-c2-main\C2\agent\bin\Debug\net8.0\ja\FSharp.Core.resources.dll
+C:\Users\61423\Desktop\Suave-c2-main\Suave-c2-main\C2\agent\bin\Debug\net8.0\ko\FSharp.Core.resources.dll
+C:\Users\61423\Desktop\Suave-c2-main\Suave-c2-main\C2\agent\bin\Debug\net8.0\pl\FSharp.Core.resources.dll
+C:\Users\61423\Desktop\Suave-c2-main\Suave-c2-main\C2\agent\bin\Debug\net8.0\pt-BR\FSharp.Core.resources.dll
+C:\Users\61423\Desktop\Suave-c2-main\Suave-c2-main\C2\agent\bin\Debug\net8.0\ru\FSharp.Core.resources.dll
+C:\Users\61423\Desktop\Suave-c2-main\Suave-c2-main\C2\agent\bin\Debug\net8.0\tr\FSharp.Core.resources.dll
+C:\Users\61423\Desktop\Suave-c2-main\Suave-c2-main\C2\agent\bin\Debug\net8.0\zh-Hans\FSharp.Core.resources.dll
+C:\Users\61423\Desktop\Suave-c2-main\Suave-c2-main\C2\agent\bin\Debug\net8.0\zh-Hant\FSharp.Core.resources.dll
+C:\Users\61423\Desktop\Suave-c2-main\Suave-c2-main\C2\agent\obj\Debug\net8.0\agent.fsproj.AssemblyReference.cache
+C:\Users\61423\Desktop\Suave-c2-main\Suave-c2-main\C2\agent\obj\Debug\net8.0\agent.AssemblyInfoInputs.cache
+C:\Users\61423\Desktop\Suave-c2-main\Suave-c2-main\C2\agent\obj\Debug\net8.0\agent.AssemblyInfo.fs
+C:\Users\61423\Desktop\Suave-c2-main\Suave-c2-main\C2\agent\obj\Debug\net8.0\agent.fsproj.CoreCompileInputs.cache
+C:\Users\61423\Desktop\Suave-c2-main\Suave-c2-main\C2\agent\obj\Debug\net8.0\agent.fsproj.Up2Date
+C:\Users\61423\Desktop\Suave-c2-main\Suave-c2-main\C2\agent\obj\Debug\net8.0\agent.dll
+C:\Users\61423\Desktop\Suave-c2-main\Suave-c2-main\C2\agent\obj\Debug\net8.0\refint\agent.dll
+C:\Users\61423\Desktop\Suave-c2-main\Suave-c2-main\C2\agent\obj\Debug\net8.0\agent.pdb
+C:\Users\61423\Desktop\Suave-c2-main\Suave-c2-main\C2\agent\obj\Debug\net8.0\agent.genruntimeconfig.cache
+C:\Users\61423\Desktop\Suave-c2-main\Suave-c2-main\C2\agent\obj\Debug\net8.0\ref\agent.dll
