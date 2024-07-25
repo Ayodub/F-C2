@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "i5PguHoh0O7TR0nw1stgibg+lJ0HLMmCBwYTAK+EVd/U6TR5vF/iP6GLTjUmci3LrP0pl0utY4uVneWAnET2lA==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\61423\\Desktop\\F# projects\\C2\\listener\\listener.fsproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\61423\\.nuget\\packages\\fsharp.core\\8.0.200\\fsharp.core.8.0.200.nupkg.sha512"
+  ],
+  "logs": []
+}
