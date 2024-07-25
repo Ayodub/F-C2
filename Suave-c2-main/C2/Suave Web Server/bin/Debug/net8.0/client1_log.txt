@@ -1,0 +1,1215 @@
+25/07/2024 3:41:00 PM: Script Output:
+
+Microsoft (R) F# Interactive version 12.8.301.0 for F# 8.0
+Copyright (c) Microsoft Corporation. All Rights Reserved.
+
+For help type #help;;
+
+> ARP Table:
+
+Interface: 192.168.73.128 --- 0x7
+  Internet Address      Physical Address      Type
+  192.168.73.2          00-50-56-f8-8d-4d     dynamic   
+  192.168.73.254        00-50-56-e4-76-b1     dynamic   
+  192.168.73.255        ff-ff-ff-ff-ff-ff     static    
+  224.0.0.22            01-00-5e-00-00-16     static    
+  224.0.0.251           01-00-5e-00-00-fb     static    
+  224.0.0.252           01-00-5e-00-00-fc     static    
+  239.255.255.250       01-00-5e-7f-ff-fa     static    
+  255.255.255.255       ff-ff-ff-ff-ff-ff     static    
+
+val getArpTable: unit -> string
+val displayArpTable: unit -> unit
+val it: unit = ()
+
+
+Script Errors:
+
+25/07/2024 3:41:12 PM: Script Output:
+
+Microsoft (R) F# Interactive version 12.8.301.0 for F# 8.0
+Copyright (c) Microsoft Corporation. All Rights Reserved.
+
+For help type #help;;
+
+> ARP Table:
+
+Interface: 192.168.73.128 --- 0x7
+  Internet Address      Physical Address      Type
+  192.168.73.2          00-50-56-f8-8d-4d     dynamic   
+  192.168.73.254        00-50-56-e4-76-b1     dynamic   
+  192.168.73.255        ff-ff-ff-ff-ff-ff     static    
+  224.0.0.22            01-00-5e-00-00-16     static    
+  224.0.0.251           01-00-5e-00-00-fb     static    
+  224.0.0.252           01-00-5e-00-00-fc     static    
+  239.255.255.250       01-00-5e-7f-ff-fa     static    
+  255.255.255.255       ff-ff-ff-ff-ff-ff     static    
+
+val getArpTable: unit -> string
+val displayArpTable: unit -> unit
+val it: unit = ()
+
+
+Script Errors:
+
+25/07/2024 3:41:24 PM: Script Output:
+
+Microsoft (R) F# Interactive version 12.8.301.0 for F# 8.0
+Copyright (c) Microsoft Corporation. All Rights Reserved.
+
+For help type #help;;
+
+> ARP Table:
+
+Interface: 192.168.73.128 --- 0x7
+  Internet Address      Physical Address      Type
+  192.168.73.2          00-50-56-f8-8d-4d     dynamic   
+  192.168.73.254        00-50-56-e4-76-b1     dynamic   
+  192.168.73.255        ff-ff-ff-ff-ff-ff     static    
+  224.0.0.22            01-00-5e-00-00-16     static    
+  224.0.0.251           01-00-5e-00-00-fb     static    
+  224.0.0.252           01-00-5e-00-00-fc     static    
+  239.255.255.250       01-00-5e-7f-ff-fa     static    
+  255.255.255.255       ff-ff-ff-ff-ff-ff     static    
+
+val getArpTable: unit -> string
+val displayArpTable: unit -> unit
+val it: unit = ()
+
+
+Script Errors:
+
+25/07/2024 3:41:36 PM: Script Output:
+
+Microsoft (R) F# Interactive version 12.8.301.0 for F# 8.0
+Copyright (c) Microsoft Corporation. All Rights Reserved.
+
+For help type #help;;
+
+> ARP Table:
+
+Interface: 192.168.73.128 --- 0x7
+  Internet Address      Physical Address      Type
+  192.168.73.2          00-50-56-f8-8d-4d     dynamic   
+  192.168.73.254        00-50-56-e4-76-b1     dynamic   
+  192.168.73.255        ff-ff-ff-ff-ff-ff     static    
+  224.0.0.22            01-00-5e-00-00-16     static    
+  224.0.0.251           01-00-5e-00-00-fb     static    
+  224.0.0.252           01-00-5e-00-00-fc     static    
+  239.255.255.250       01-00-5e-7f-ff-fa     static    
+  255.255.255.255       ff-ff-ff-ff-ff-ff     static    
+
+val getArpTable: unit -> string
+val displayArpTable: unit -> unit
+val it: unit = ()
+
+
+Script Errors:
+
+25/07/2024 3:45:25 PM: Script Output:
+
+Microsoft (R) F# Interactive version 12.8.301.0 for F# 8.0
+Copyright (c) Microsoft Corporation. All Rights Reserved.
+
+For help type #help;;
+
+> ARP Table:
+
+Interface: 192.168.73.128 --- 0x7
+  Internet Address      Physical Address      Type
+  192.168.73.2          00-50-56-f8-8d-4d     dynamic   
+  192.168.73.254        00-50-56-e4-76-b1     dynamic   
+  192.168.73.255        ff-ff-ff-ff-ff-ff     static    
+  224.0.0.22            01-00-5e-00-00-16     static    
+  224.0.0.251           01-00-5e-00-00-fb     static    
+  224.0.0.252           01-00-5e-00-00-fc     static    
+  239.255.255.250       01-00-5e-7f-ff-fa     static    
+  255.255.255.255       ff-ff-ff-ff-ff-ff     static    
+
+val getArpTable: unit -> string
+val displayArpTable: unit -> unit
+val it: unit = ()
+
+
+Script Errors:
+
+25/07/2024 3:45:37 PM: Script Output:
+
+Microsoft (R) F# Interactive version 12.8.301.0 for F# 8.0
+Copyright (c) Microsoft Corporation. All Rights Reserved.
+
+For help type #help;;
+
+> ARP Table:
+
+Interface: 192.168.73.128 --- 0x7
+  Internet Address      Physical Address      Type
+  192.168.73.2          00-50-56-f8-8d-4d     dynamic   
+  192.168.73.254        00-50-56-e4-76-b1     dynamic   
+  192.168.73.255        ff-ff-ff-ff-ff-ff     static    
+  224.0.0.22            01-00-5e-00-00-16     static    
+  224.0.0.251           01-00-5e-00-00-fb     static    
+  224.0.0.252           01-00-5e-00-00-fc     static    
+  239.255.255.250       01-00-5e-7f-ff-fa     static    
+  255.255.255.255       ff-ff-ff-ff-ff-ff     static    
+
+val getArpTable: unit -> string
+val displayArpTable: unit -> unit
+val it: unit = ()
+
+
+Script Errors:
+
+25/07/2024 3:45:49 PM: Script Output:
+
+Microsoft (R) F# Interactive version 12.8.301.0 for F# 8.0
+Copyright (c) Microsoft Corporation. All Rights Reserved.
+
+For help type #help;;
+
+> ARP Table:
+
+Interface: 192.168.73.128 --- 0x7
+  Internet Address      Physical Address      Type
+  192.168.73.2          00-50-56-f8-8d-4d     dynamic   
+  192.168.73.254        00-50-56-e4-76-b1     dynamic   
+  192.168.73.255        ff-ff-ff-ff-ff-ff     static    
+  224.0.0.22            01-00-5e-00-00-16     static    
+  224.0.0.251           01-00-5e-00-00-fb     static    
+  224.0.0.252           01-00-5e-00-00-fc     static    
+  239.255.255.250       01-00-5e-7f-ff-fa     static    
+  255.255.255.255       ff-ff-ff-ff-ff-ff     static    
+
+val getArpTable: unit -> string
+val displayArpTable: unit -> unit
+val it: unit = ()
+
+
+Script Errors:
+
+25/07/2024 3:46:01 PM: Script Output:
+
+Microsoft (R) F# Interactive version 12.8.301.0 for F# 8.0
+Copyright (c) Microsoft Corporation. All Rights Reserved.
+
+For help type #help;;
+
+> ARP Table:
+
+Interface: 192.168.73.128 --- 0x7
+  Internet Address      Physical Address      Type
+  192.168.73.2          00-50-56-f8-8d-4d     dynamic   
+  192.168.73.254        00-50-56-e4-76-b1     dynamic   
+  192.168.73.255        ff-ff-ff-ff-ff-ff     static    
+  224.0.0.22            01-00-5e-00-00-16     static    
+  224.0.0.251           01-00-5e-00-00-fb     static    
+  224.0.0.252           01-00-5e-00-00-fc     static    
+  239.255.255.250       01-00-5e-7f-ff-fa     static    
+  255.255.255.255       ff-ff-ff-ff-ff-ff     static    
+
+val getArpTable: unit -> string
+val displayArpTable: unit -> unit
+val it: unit = ()
+
+
+Script Errors:
+
+25/07/2024 3:46:13 PM: Script Output:
+
+Microsoft (R) F# Interactive version 12.8.301.0 for F# 8.0
+Copyright (c) Microsoft Corporation. All Rights Reserved.
+
+For help type #help;;
+
+> ARP Table:
+
+Interface: 192.168.73.128 --- 0x7
+  Internet Address      Physical Address      Type
+  192.168.73.2          00-50-56-f8-8d-4d     dynamic   
+  192.168.73.254        00-50-56-e4-76-b1     dynamic   
+  192.168.73.255        ff-ff-ff-ff-ff-ff     static    
+  224.0.0.22            01-00-5e-00-00-16     static    
+  224.0.0.251           01-00-5e-00-00-fb     static    
+  224.0.0.252           01-00-5e-00-00-fc     static    
+  239.255.255.250       01-00-5e-7f-ff-fa     static    
+  255.255.255.255       ff-ff-ff-ff-ff-ff     static    
+
+val getArpTable: unit -> string
+val displayArpTable: unit -> unit
+val it: unit = ()
+
+
+Script Errors:
+
+25/07/2024 3:46:25 PM: Script Output:
+
+Microsoft (R) F# Interactive version 12.8.301.0 for F# 8.0
+Copyright (c) Microsoft Corporation. All Rights Reserved.
+
+For help type #help;;
+
+> ARP Table:
+
+Interface: 192.168.73.128 --- 0x7
+  Internet Address      Physical Address      Type
+  192.168.73.2          00-50-56-f8-8d-4d     dynamic   
+  192.168.73.254        00-50-56-e4-76-b1     dynamic   
+  192.168.73.255        ff-ff-ff-ff-ff-ff     static    
+  224.0.0.22            01-00-5e-00-00-16     static    
+  224.0.0.251           01-00-5e-00-00-fb     static    
+  224.0.0.252           01-00-5e-00-00-fc     static    
+  239.255.255.250       01-00-5e-7f-ff-fa     static    
+  255.255.255.255       ff-ff-ff-ff-ff-ff     static    
+
+val getArpTable: unit -> string
+val displayArpTable: unit -> unit
+val it: unit = ()
+
+
+Script Errors:
+
+25/07/2024 3:46:40 PM: Script Output:
+
+Microsoft (R) F# Interactive version 12.8.301.0 for F# 8.0
+Copyright (c) Microsoft Corporation. All Rights Reserved.
+
+For help type #help;;
+
+> ARP Table:
+
+Interface: 192.168.73.128 --- 0x7
+  Internet Address      Physical Address      Type
+  192.168.73.2          00-50-56-f8-8d-4d     dynamic   
+  192.168.73.254        00-50-56-e4-76-b1     dynamic   
+  192.168.73.255        ff-ff-ff-ff-ff-ff     static    
+  224.0.0.22            01-00-5e-00-00-16     static    
+  224.0.0.251           01-00-5e-00-00-fb     static    
+  224.0.0.252           01-00-5e-00-00-fc     static    
+  239.255.255.250       01-00-5e-7f-ff-fa     static    
+  255.255.255.255       ff-ff-ff-ff-ff-ff     static    
+
+val getArpTable: unit -> string
+val displayArpTable: unit -> unit
+val it: unit = ()
+
+
+Script Errors:
+
+25/07/2024 3:46:52 PM: Script Output:
+
+Microsoft (R) F# Interactive version 12.8.301.0 for F# 8.0
+Copyright (c) Microsoft Corporation. All Rights Reserved.
+
+For help type #help;;
+
+> ARP Table:
+
+Interface: 192.168.73.128 --- 0x7
+  Internet Address      Physical Address      Type
+  192.168.73.2          00-50-56-f8-8d-4d     dynamic   
+  192.168.73.254        00-50-56-e4-76-b1     dynamic   
+  192.168.73.255        ff-ff-ff-ff-ff-ff     static    
+  224.0.0.22            01-00-5e-00-00-16     static    
+  224.0.0.251           01-00-5e-00-00-fb     static    
+  224.0.0.252           01-00-5e-00-00-fc     static    
+  239.255.255.250       01-00-5e-7f-ff-fa     static    
+  255.255.255.255       ff-ff-ff-ff-ff-ff     static    
+
+val getArpTable: unit -> string
+val displayArpTable: unit -> unit
+val it: unit = ()
+
+
+Script Errors:
+
+25/07/2024 3:47:04 PM: Script Output:
+
+Microsoft (R) F# Interactive version 12.8.301.0 for F# 8.0
+Copyright (c) Microsoft Corporation. All Rights Reserved.
+
+For help type #help;;
+
+> ARP Table:
+
+Interface: 192.168.73.128 --- 0x7
+  Internet Address      Physical Address      Type
+  192.168.73.2          00-50-56-f8-8d-4d     dynamic   
+  192.168.73.254        00-50-56-e4-76-b1     dynamic   
+  192.168.73.255        ff-ff-ff-ff-ff-ff     static    
+  224.0.0.22            01-00-5e-00-00-16     static    
+  224.0.0.251           01-00-5e-00-00-fb     static    
+  224.0.0.252           01-00-5e-00-00-fc     static    
+  239.255.255.250       01-00-5e-7f-ff-fa     static    
+  255.255.255.255       ff-ff-ff-ff-ff-ff     static    
+
+val getArpTable: unit -> string
+val displayArpTable: unit -> unit
+val it: unit = ()
+
+
+Script Errors:
+
+25/07/2024 3:47:16 PM: Script Output:
+
+Microsoft (R) F# Interactive version 12.8.301.0 for F# 8.0
+Copyright (c) Microsoft Corporation. All Rights Reserved.
+
+For help type #help;;
+
+> ARP Table:
+
+Interface: 192.168.73.128 --- 0x7
+  Internet Address      Physical Address      Type
+  192.168.73.2          00-50-56-f8-8d-4d     dynamic   
+  192.168.73.254        00-50-56-e4-76-b1     dynamic   
+  192.168.73.255        ff-ff-ff-ff-ff-ff     static    
+  224.0.0.22            01-00-5e-00-00-16     static    
+  224.0.0.251           01-00-5e-00-00-fb     static    
+  224.0.0.252           01-00-5e-00-00-fc     static    
+  239.255.255.250       01-00-5e-7f-ff-fa     static    
+  255.255.255.255       ff-ff-ff-ff-ff-ff     static    
+
+val getArpTable: unit -> string
+val displayArpTable: unit -> unit
+val it: unit = ()
+
+
+Script Errors:
+
+25/07/2024 3:47:28 PM: Script Output:
+
+Microsoft (R) F# Interactive version 12.8.301.0 for F# 8.0
+Copyright (c) Microsoft Corporation. All Rights Reserved.
+
+For help type #help;;
+
+> ARP Table:
+
+Interface: 192.168.73.128 --- 0x7
+  Internet Address      Physical Address      Type
+  192.168.73.2          00-50-56-f8-8d-4d     dynamic   
+  192.168.73.254        00-50-56-e4-76-b1     dynamic   
+  192.168.73.255        ff-ff-ff-ff-ff-ff     static    
+  224.0.0.22            01-00-5e-00-00-16     static    
+  224.0.0.251           01-00-5e-00-00-fb     static    
+  224.0.0.252           01-00-5e-00-00-fc     static    
+  239.255.255.250       01-00-5e-7f-ff-fa     static    
+  255.255.255.255       ff-ff-ff-ff-ff-ff     static    
+
+val getArpTable: unit -> string
+val displayArpTable: unit -> unit
+val it: unit = ()
+
+
+Script Errors:
+
+25/07/2024 3:47:41 PM: Script Output:
+
+Microsoft (R) F# Interactive version 12.8.301.0 for F# 8.0
+Copyright (c) Microsoft Corporation. All Rights Reserved.
+
+For help type #help;;
+
+> ARP Table:
+
+Interface: 192.168.73.128 --- 0x7
+  Internet Address      Physical Address      Type
+  192.168.73.2          00-50-56-f8-8d-4d     dynamic   
+  192.168.73.254        00-50-56-e4-76-b1     dynamic   
+  192.168.73.255        ff-ff-ff-ff-ff-ff     static    
+  224.0.0.22            01-00-5e-00-00-16     static    
+  224.0.0.251           01-00-5e-00-00-fb     static    
+  224.0.0.252           01-00-5e-00-00-fc     static    
+  239.255.255.250       01-00-5e-7f-ff-fa     static    
+  255.255.255.255       ff-ff-ff-ff-ff-ff     static    
+
+val getArpTable: unit -> string
+val displayArpTable: unit -> unit
+val it: unit = ()
+
+
+Script Errors:
+
+25/07/2024 3:47:52 PM: Script Output:
+
+Microsoft (R) F# Interactive version 12.8.301.0 for F# 8.0
+Copyright (c) Microsoft Corporation. All Rights Reserved.
+
+For help type #help;;
+
+> ARP Table:
+
+Interface: 192.168.73.128 --- 0x7
+  Internet Address      Physical Address      Type
+  192.168.73.2          00-50-56-f8-8d-4d     dynamic   
+  192.168.73.254        00-50-56-e4-76-b1     dynamic   
+  192.168.73.255        ff-ff-ff-ff-ff-ff     static    
+  224.0.0.22            01-00-5e-00-00-16     static    
+  224.0.0.251           01-00-5e-00-00-fb     static    
+  224.0.0.252           01-00-5e-00-00-fc     static    
+  239.255.255.250       01-00-5e-7f-ff-fa     static    
+  255.255.255.255       ff-ff-ff-ff-ff-ff     static    
+
+val getArpTable: unit -> string
+val displayArpTable: unit -> unit
+val it: unit = ()
+
+
+Script Errors:
+
+25/07/2024 3:48:04 PM: Script Output:
+
+Microsoft (R) F# Interactive version 12.8.301.0 for F# 8.0
+Copyright (c) Microsoft Corporation. All Rights Reserved.
+
+For help type #help;;
+
+> ARP Table:
+
+Interface: 192.168.73.128 --- 0x7
+  Internet Address      Physical Address      Type
+  192.168.73.2          00-50-56-f8-8d-4d     dynamic   
+  192.168.73.254        00-50-56-e4-76-b1     dynamic   
+  192.168.73.255        ff-ff-ff-ff-ff-ff     static    
+  224.0.0.22            01-00-5e-00-00-16     static    
+  224.0.0.251           01-00-5e-00-00-fb     static    
+  224.0.0.252           01-00-5e-00-00-fc     static    
+  239.255.255.250       01-00-5e-7f-ff-fa     static    
+  255.255.255.255       ff-ff-ff-ff-ff-ff     static    
+
+val getArpTable: unit -> string
+val displayArpTable: unit -> unit
+val it: unit = ()
+
+
+Script Errors:
+
+25/07/2024 3:48:16 PM: Script Output:
+
+Microsoft (R) F# Interactive version 12.8.301.0 for F# 8.0
+Copyright (c) Microsoft Corporation. All Rights Reserved.
+
+For help type #help;;
+
+> ARP Table:
+
+Interface: 192.168.73.128 --- 0x7
+  Internet Address      Physical Address      Type
+  192.168.73.2          00-50-56-f8-8d-4d     dynamic   
+  192.168.73.254        00-50-56-e4-76-b1     dynamic   
+  192.168.73.255        ff-ff-ff-ff-ff-ff     static    
+  224.0.0.22            01-00-5e-00-00-16     static    
+  224.0.0.251           01-00-5e-00-00-fb     static    
+  224.0.0.252           01-00-5e-00-00-fc     static    
+  239.255.255.250       01-00-5e-7f-ff-fa     static    
+  255.255.255.255       ff-ff-ff-ff-ff-ff     static    
+
+val getArpTable: unit -> string
+val displayArpTable: unit -> unit
+val it: unit = ()
+
+
+Script Errors:
+
+25/07/2024 3:48:29 PM: Script Output:
+
+Microsoft (R) F# Interactive version 12.8.301.0 for F# 8.0
+Copyright (c) Microsoft Corporation. All Rights Reserved.
+
+For help type #help;;
+
+> ARP Table:
+
+Interface: 192.168.73.128 --- 0x7
+  Internet Address      Physical Address      Type
+  192.168.73.2          00-50-56-f8-8d-4d     dynamic   
+  192.168.73.254        00-50-56-e4-76-b1     dynamic   
+  192.168.73.255        ff-ff-ff-ff-ff-ff     static    
+  224.0.0.22            01-00-5e-00-00-16     static    
+  224.0.0.251           01-00-5e-00-00-fb     static    
+  224.0.0.252           01-00-5e-00-00-fc     static    
+  239.255.255.250       01-00-5e-7f-ff-fa     static    
+  255.255.255.255       ff-ff-ff-ff-ff-ff     static    
+
+val getArpTable: unit -> string
+val displayArpTable: unit -> unit
+val it: unit = ()
+
+
+Script Errors:
+
+25/07/2024 3:53:37 PM: Script Output:
+
+Microsoft (R) F# Interactive version 12.8.301.0 for F# 8.0
+Copyright (c) Microsoft Corporation. All Rights Reserved.
+
+For help type #help;;
+
+> ARP Table:
+
+Interface: 192.168.73.128 --- 0x7
+  Internet Address      Physical Address      Type
+  192.168.73.2          00-50-56-f8-8d-4d     dynamic   
+  192.168.73.254        00-50-56-e4-76-b1     dynamic   
+  192.168.73.255        ff-ff-ff-ff-ff-ff     static    
+  224.0.0.22            01-00-5e-00-00-16     static    
+  224.0.0.251           01-00-5e-00-00-fb     static    
+  224.0.0.252           01-00-5e-00-00-fc     static    
+  239.255.255.250       01-00-5e-7f-ff-fa     static    
+  255.255.255.255       ff-ff-ff-ff-ff-ff     static    
+
+val getArpTable: unit -> string
+val displayArpTable: unit -> unit
+val it: unit = ()
+
+
+Script Errors:
+
+25/07/2024 3:53:49 PM: Script Output:
+
+Microsoft (R) F# Interactive version 12.8.301.0 for F# 8.0
+Copyright (c) Microsoft Corporation. All Rights Reserved.
+
+For help type #help;;
+
+> ARP Table:
+
+Interface: 192.168.73.128 --- 0x7
+  Internet Address      Physical Address      Type
+  192.168.73.2          00-50-56-f8-8d-4d     dynamic   
+  192.168.73.254        00-50-56-e4-76-b1     dynamic   
+  192.168.73.255        ff-ff-ff-ff-ff-ff     static    
+  224.0.0.22            01-00-5e-00-00-16     static    
+  224.0.0.251           01-00-5e-00-00-fb     static    
+  224.0.0.252           01-00-5e-00-00-fc     static    
+  239.255.255.250       01-00-5e-7f-ff-fa     static    
+  255.255.255.255       ff-ff-ff-ff-ff-ff     static    
+
+val getArpTable: unit -> string
+val displayArpTable: unit -> unit
+val it: unit = ()
+
+
+Script Errors:
+
+25/07/2024 3:54:01 PM: Script Output:
+
+Microsoft (R) F# Interactive version 12.8.301.0 for F# 8.0
+Copyright (c) Microsoft Corporation. All Rights Reserved.
+
+For help type #help;;
+
+> ARP Table:
+
+Interface: 192.168.73.128 --- 0x7
+  Internet Address      Physical Address      Type
+  192.168.73.2          00-50-56-f8-8d-4d     dynamic   
+  192.168.73.254        00-50-56-e4-76-b1     dynamic   
+  192.168.73.255        ff-ff-ff-ff-ff-ff     static    
+  224.0.0.22            01-00-5e-00-00-16     static    
+  224.0.0.251           01-00-5e-00-00-fb     static    
+  224.0.0.252           01-00-5e-00-00-fc     static    
+  239.255.255.250       01-00-5e-7f-ff-fa     static    
+  255.255.255.255       ff-ff-ff-ff-ff-ff     static    
+
+val getArpTable: unit -> string
+val displayArpTable: unit -> unit
+val it: unit = ()
+
+
+Script Errors:
+
+25/07/2024 3:54:13 PM: Script Output:
+
+Microsoft (R) F# Interactive version 12.8.301.0 for F# 8.0
+Copyright (c) Microsoft Corporation. All Rights Reserved.
+
+For help type #help;;
+
+> ARP Table:
+
+Interface: 192.168.73.128 --- 0x7
+  Internet Address      Physical Address      Type
+  192.168.73.2          00-50-56-f8-8d-4d     dynamic   
+  192.168.73.254        00-50-56-e4-76-b1     dynamic   
+  192.168.73.255        ff-ff-ff-ff-ff-ff     static    
+  224.0.0.22            01-00-5e-00-00-16     static    
+  224.0.0.251           01-00-5e-00-00-fb     static    
+  224.0.0.252           01-00-5e-00-00-fc     static    
+  239.255.255.250       01-00-5e-7f-ff-fa     static    
+  255.255.255.255       ff-ff-ff-ff-ff-ff     static    
+
+val getArpTable: unit -> string
+val displayArpTable: unit -> unit
+val it: unit = ()
+
+
+Script Errors:
+
+25/07/2024 3:54:25 PM: Script Output:
+
+Microsoft (R) F# Interactive version 12.8.301.0 for F# 8.0
+Copyright (c) Microsoft Corporation. All Rights Reserved.
+
+For help type #help;;
+
+> ARP Table:
+
+Interface: 192.168.73.128 --- 0x7
+  Internet Address      Physical Address      Type
+  192.168.73.2          00-50-56-f8-8d-4d     dynamic   
+  192.168.73.254        00-50-56-e4-76-b1     dynamic   
+  192.168.73.255        ff-ff-ff-ff-ff-ff     static    
+  224.0.0.22            01-00-5e-00-00-16     static    
+  224.0.0.251           01-00-5e-00-00-fb     static    
+  224.0.0.252           01-00-5e-00-00-fc     static    
+  239.255.255.250       01-00-5e-7f-ff-fa     static    
+  255.255.255.255       ff-ff-ff-ff-ff-ff     static    
+
+val getArpTable: unit -> string
+val displayArpTable: unit -> unit
+val it: unit = ()
+
+
+Script Errors:
+
+25/07/2024 3:57:36 PM: Script Output:
+
+Microsoft (R) F# Interactive version 12.8.301.0 for F# 8.0
+Copyright (c) Microsoft Corporation. All Rights Reserved.
+
+For help type #help;;
+
+> ARP Table:
+
+Interface: 192.168.73.128 --- 0x7
+  Internet Address      Physical Address      Type
+  192.168.73.2          00-50-56-f8-8d-4d     dynamic   
+  192.168.73.254        00-50-56-e4-76-b1     dynamic   
+  192.168.73.255        ff-ff-ff-ff-ff-ff     static    
+  224.0.0.22            01-00-5e-00-00-16     static    
+  224.0.0.251           01-00-5e-00-00-fb     static    
+  224.0.0.252           01-00-5e-00-00-fc     static    
+  239.255.255.250       01-00-5e-7f-ff-fa     static    
+  255.255.255.255       ff-ff-ff-ff-ff-ff     static    
+
+val getArpTable: unit -> string
+val displayArpTable: unit -> unit
+val it: unit = ()
+
+
+Script Errors:
+
+25/07/2024 3:57:48 PM: Script Output:
+
+Microsoft (R) F# Interactive version 12.8.301.0 for F# 8.0
+Copyright (c) Microsoft Corporation. All Rights Reserved.
+
+For help type #help;;
+
+> ARP Table:
+
+Interface: 192.168.73.128 --- 0x7
+  Internet Address      Physical Address      Type
+  192.168.73.2          00-50-56-f8-8d-4d     dynamic   
+  192.168.73.254        00-50-56-e4-76-b1     dynamic   
+  192.168.73.255        ff-ff-ff-ff-ff-ff     static    
+  224.0.0.22            01-00-5e-00-00-16     static    
+  224.0.0.251           01-00-5e-00-00-fb     static    
+  224.0.0.252           01-00-5e-00-00-fc     static    
+  239.255.255.250       01-00-5e-7f-ff-fa     static    
+  255.255.255.255       ff-ff-ff-ff-ff-ff     static    
+
+val getArpTable: unit -> string
+val displayArpTable: unit -> unit
+val it: unit = ()
+
+
+Script Errors:
+
+25/07/2024 3:58:00 PM: Script Output:
+
+Microsoft (R) F# Interactive version 12.8.301.0 for F# 8.0
+Copyright (c) Microsoft Corporation. All Rights Reserved.
+
+For help type #help;;
+
+> ARP Table:
+
+Interface: 192.168.73.128 --- 0x7
+  Internet Address      Physical Address      Type
+  192.168.73.2          00-50-56-f8-8d-4d     dynamic   
+  192.168.73.254        00-50-56-e4-76-b1     dynamic   
+  192.168.73.255        ff-ff-ff-ff-ff-ff     static    
+  224.0.0.22            01-00-5e-00-00-16     static    
+  224.0.0.251           01-00-5e-00-00-fb     static    
+  224.0.0.252           01-00-5e-00-00-fc     static    
+  239.255.255.250       01-00-5e-7f-ff-fa     static    
+  255.255.255.255       ff-ff-ff-ff-ff-ff     static    
+
+val getArpTable: unit -> string
+val displayArpTable: unit -> unit
+val it: unit = ()
+
+
+Script Errors:
+
+25/07/2024 4:01:00 PM: Script Output:
+
+Microsoft (R) F# Interactive version 12.8.301.0 for F# 8.0
+Copyright (c) Microsoft Corporation. All Rights Reserved.
+
+For help type #help;;
+
+> ARP Table:
+
+Interface: 192.168.73.128 --- 0x7
+  Internet Address      Physical Address      Type
+  192.168.73.2          00-50-56-f8-8d-4d     dynamic   
+  192.168.73.254        00-50-56-e4-76-b1     dynamic   
+  192.168.73.255        ff-ff-ff-ff-ff-ff     static    
+  224.0.0.22            01-00-5e-00-00-16     static    
+  224.0.0.251           01-00-5e-00-00-fb     static    
+  224.0.0.252           01-00-5e-00-00-fc     static    
+  239.255.255.250       01-00-5e-7f-ff-fa     static    
+  255.255.255.255       ff-ff-ff-ff-ff-ff     static    
+
+val getArpTable: unit -> string
+val displayArpTable: unit -> unit
+val it: unit = ()
+
+
+Script Errors:
+
+25/07/2024 4:01:12 PM: Script Output:
+
+Microsoft (R) F# Interactive version 12.8.301.0 for F# 8.0
+Copyright (c) Microsoft Corporation. All Rights Reserved.
+
+For help type #help;;
+
+> ARP Table:
+
+Interface: 192.168.73.128 --- 0x7
+  Internet Address      Physical Address      Type
+  192.168.73.2          00-50-56-f8-8d-4d     dynamic   
+  192.168.73.254        00-50-56-e4-76-b1     dynamic   
+  192.168.73.255        ff-ff-ff-ff-ff-ff     static    
+  224.0.0.22            01-00-5e-00-00-16     static    
+  224.0.0.251           01-00-5e-00-00-fb     static    
+  224.0.0.252           01-00-5e-00-00-fc     static    
+  239.255.255.250       01-00-5e-7f-ff-fa     static    
+  255.255.255.255       ff-ff-ff-ff-ff-ff     static    
+
+val getArpTable: unit -> string
+val displayArpTable: unit -> unit
+val it: unit = ()
+
+
+Script Errors:
+
+25/07/2024 4:01:24 PM: Script Output:
+
+Microsoft (R) F# Interactive version 12.8.301.0 for F# 8.0
+Copyright (c) Microsoft Corporation. All Rights Reserved.
+
+For help type #help;;
+
+> ARP Table:
+
+Interface: 192.168.73.128 --- 0x7
+  Internet Address      Physical Address      Type
+  192.168.73.2          00-50-56-f8-8d-4d     dynamic   
+  192.168.73.254        00-50-56-e4-76-b1     dynamic   
+  192.168.73.255        ff-ff-ff-ff-ff-ff     static    
+  224.0.0.22            01-00-5e-00-00-16     static    
+  224.0.0.251           01-00-5e-00-00-fb     static    
+  224.0.0.252           01-00-5e-00-00-fc     static    
+  239.255.255.250       01-00-5e-7f-ff-fa     static    
+  255.255.255.255       ff-ff-ff-ff-ff-ff     static    
+
+val getArpTable: unit -> string
+val displayArpTable: unit -> unit
+val it: unit = ()
+
+
+Script Errors:
+
+25/07/2024 4:03:48 PM: Script Output:
+
+Microsoft (R) F# Interactive version 12.8.301.0 for F# 8.0
+Copyright (c) Microsoft Corporation. All Rights Reserved.
+
+For help type #help;;
+
+> ARP Table:
+
+Interface: 192.168.73.128 --- 0x7
+  Internet Address      Physical Address      Type
+  192.168.73.2          00-50-56-f8-8d-4d     dynamic   
+  192.168.73.254        00-50-56-e4-76-b1     dynamic   
+  192.168.73.255        ff-ff-ff-ff-ff-ff     static    
+  224.0.0.22            01-00-5e-00-00-16     static    
+  224.0.0.251           01-00-5e-00-00-fb     static    
+  224.0.0.252           01-00-5e-00-00-fc     static    
+  239.255.255.250       01-00-5e-7f-ff-fa     static    
+  255.255.255.255       ff-ff-ff-ff-ff-ff     static    
+
+val getArpTable: unit -> string
+val displayArpTable: unit -> unit
+val it: unit = ()
+
+
+Script Errors:
+
+25/07/2024 4:04:00 PM: Script Output:
+
+Microsoft (R) F# Interactive version 12.8.301.0 for F# 8.0
+Copyright (c) Microsoft Corporation. All Rights Reserved.
+
+For help type #help;;
+
+> ARP Table:
+
+Interface: 192.168.73.128 --- 0x7
+  Internet Address      Physical Address      Type
+  192.168.73.2          00-50-56-f8-8d-4d     dynamic   
+  192.168.73.254        00-50-56-e4-76-b1     dynamic   
+  192.168.73.255        ff-ff-ff-ff-ff-ff     static    
+  224.0.0.22            01-00-5e-00-00-16     static    
+  224.0.0.251           01-00-5e-00-00-fb     static    
+  224.0.0.252           01-00-5e-00-00-fc     static    
+  239.255.255.250       01-00-5e-7f-ff-fa     static    
+  255.255.255.255       ff-ff-ff-ff-ff-ff     static    
+
+val getArpTable: unit -> string
+val displayArpTable: unit -> unit
+val it: unit = ()
+
+
+Script Errors:
+
+25/07/2024 4:04:12 PM: Script Output:
+
+Microsoft (R) F# Interactive version 12.8.301.0 for F# 8.0
+Copyright (c) Microsoft Corporation. All Rights Reserved.
+
+For help type #help;;
+
+> ARP Table:
+
+Interface: 192.168.73.128 --- 0x7
+  Internet Address      Physical Address      Type
+  192.168.73.2          00-50-56-f8-8d-4d     dynamic   
+  192.168.73.254        00-50-56-e4-76-b1     dynamic   
+  192.168.73.255        ff-ff-ff-ff-ff-ff     static    
+  224.0.0.22            01-00-5e-00-00-16     static    
+  224.0.0.251           01-00-5e-00-00-fb     static    
+  224.0.0.252           01-00-5e-00-00-fc     static    
+  239.255.255.250       01-00-5e-7f-ff-fa     static    
+  255.255.255.255       ff-ff-ff-ff-ff-ff     static    
+
+val getArpTable: unit -> string
+val displayArpTable: unit -> unit
+val it: unit = ()
+
+
+Script Errors:
+
+25/07/2024 4:04:24 PM: Script Output:
+
+Microsoft (R) F# Interactive version 12.8.301.0 for F# 8.0
+Copyright (c) Microsoft Corporation. All Rights Reserved.
+
+For help type #help;;
+
+> ARP Table:
+
+Interface: 192.168.73.128 --- 0x7
+  Internet Address      Physical Address      Type
+  192.168.73.2          00-50-56-f8-8d-4d     dynamic   
+  192.168.73.254        00-50-56-e4-76-b1     dynamic   
+  192.168.73.255        ff-ff-ff-ff-ff-ff     static    
+  224.0.0.22            01-00-5e-00-00-16     static    
+  224.0.0.251           01-00-5e-00-00-fb     static    
+  224.0.0.252           01-00-5e-00-00-fc     static    
+  239.255.255.250       01-00-5e-7f-ff-fa     static    
+  255.255.255.255       ff-ff-ff-ff-ff-ff     static    
+
+val getArpTable: unit -> string
+val displayArpTable: unit -> unit
+val it: unit = ()
+
+
+Script Errors:
+
+25/07/2024 4:04:36 PM: Script Output:
+
+Microsoft (R) F# Interactive version 12.8.301.0 for F# 8.0
+Copyright (c) Microsoft Corporation. All Rights Reserved.
+
+For help type #help;;
+
+> ARP Table:
+
+Interface: 192.168.73.128 --- 0x7
+  Internet Address      Physical Address      Type
+  192.168.73.2          00-50-56-f8-8d-4d     dynamic   
+  192.168.73.254        00-50-56-e4-76-b1     dynamic   
+  192.168.73.255        ff-ff-ff-ff-ff-ff     static    
+  224.0.0.22            01-00-5e-00-00-16     static    
+  224.0.0.251           01-00-5e-00-00-fb     static    
+  224.0.0.252           01-00-5e-00-00-fc     static    
+  239.255.255.250       01-00-5e-7f-ff-fa     static    
+  255.255.255.255       ff-ff-ff-ff-ff-ff     static    
+
+val getArpTable: unit -> string
+val displayArpTable: unit -> unit
+val it: unit = ()
+
+
+Script Errors:
+
+25/07/2024 4:06:38 PM: Script Output:
+
+Microsoft (R) F# Interactive version 12.8.301.0 for F# 8.0
+Copyright (c) Microsoft Corporation. All Rights Reserved.
+
+For help type #help;;
+
+> ARP Table:
+
+Interface: 192.168.73.128 --- 0x7
+  Internet Address      Physical Address      Type
+  192.168.73.2          00-50-56-f8-8d-4d     dynamic   
+  192.168.73.254        00-50-56-e4-76-b1     dynamic   
+  192.168.73.255        ff-ff-ff-ff-ff-ff     static    
+  224.0.0.22            01-00-5e-00-00-16     static    
+  224.0.0.251           01-00-5e-00-00-fb     static    
+  224.0.0.252           01-00-5e-00-00-fc     static    
+  239.255.255.250       01-00-5e-7f-ff-fa     static    
+  255.255.255.255       ff-ff-ff-ff-ff-ff     static    
+
+val getArpTable: unit -> string
+val displayArpTable: unit -> unit
+val it: unit = ()
+
+
+Script Errors:
+
+25/07/2024 4:06:50 PM: Script Output:
+
+Microsoft (R) F# Interactive version 12.8.301.0 for F# 8.0
+Copyright (c) Microsoft Corporation. All Rights Reserved.
+
+For help type #help;;
+
+> ARP Table:
+
+Interface: 192.168.73.128 --- 0x7
+  Internet Address      Physical Address      Type
+  192.168.73.2          00-50-56-f8-8d-4d     dynamic   
+  192.168.73.254        00-50-56-e4-76-b1     dynamic   
+  192.168.73.255        ff-ff-ff-ff-ff-ff     static    
+  224.0.0.22            01-00-5e-00-00-16     static    
+  224.0.0.251           01-00-5e-00-00-fb     static    
+  224.0.0.252           01-00-5e-00-00-fc     static    
+  239.255.255.250       01-00-5e-7f-ff-fa     static    
+  255.255.255.255       ff-ff-ff-ff-ff-ff     static    
+
+val getArpTable: unit -> string
+val displayArpTable: unit -> unit
+val it: unit = ()
+
+
+Script Errors:
+
+25/07/2024 4:07:02 PM: Script Output:
+
+Microsoft (R) F# Interactive version 12.8.301.0 for F# 8.0
+Copyright (c) Microsoft Corporation. All Rights Reserved.
+
+For help type #help;;
+
+> ARP Table:
+
+Interface: 192.168.73.128 --- 0x7
+  Internet Address      Physical Address      Type
+  192.168.73.2          00-50-56-f8-8d-4d     dynamic   
+  192.168.73.254        00-50-56-e4-76-b1     dynamic   
+  192.168.73.255        ff-ff-ff-ff-ff-ff     static    
+  224.0.0.22            01-00-5e-00-00-16     static    
+  224.0.0.251           01-00-5e-00-00-fb     static    
+  224.0.0.252           01-00-5e-00-00-fc     static    
+  239.255.255.250       01-00-5e-7f-ff-fa     static    
+  255.255.255.255       ff-ff-ff-ff-ff-ff     static    
+
+val getArpTable: unit -> string
+val displayArpTable: unit -> unit
+val it: unit = ()
+
+
+Script Errors:
+
+25/07/2024 4:09:52 PM: Script Output:
+
+Microsoft (R) F# Interactive version 12.8.301.0 for F# 8.0
+Copyright (c) Microsoft Corporation. All Rights Reserved.
+
+For help type #help;;
+
+> ARP Table:
+
+Interface: 192.168.73.128 --- 0x7
+  Internet Address      Physical Address      Type
+  192.168.73.2          00-50-56-f8-8d-4d     dynamic   
+  192.168.73.254        00-50-56-e4-76-b1     dynamic   
+  192.168.73.255        ff-ff-ff-ff-ff-ff     static    
+  224.0.0.22            01-00-5e-00-00-16     static    
+  224.0.0.251           01-00-5e-00-00-fb     static    
+  224.0.0.252           01-00-5e-00-00-fc     static    
+  239.255.255.250       01-00-5e-7f-ff-fa     static    
+  255.255.255.255       ff-ff-ff-ff-ff-ff     static    
+
+val getArpTable: unit -> string
+val displayArpTable: unit -> unit
+val it: unit = ()
+
+
+Script Errors:
+
+25/07/2024 4:10:05 PM: Script Output:
+
+Microsoft (R) F# Interactive version 12.8.301.0 for F# 8.0
+Copyright (c) Microsoft Corporation. All Rights Reserved.
+
+For help type #help;;
+
+> ARP Table:
+
+Interface: 192.168.73.128 --- 0x7
+  Internet Address      Physical Address      Type
+  192.168.73.2          00-50-56-f8-8d-4d     dynamic   
+  192.168.73.254        00-50-56-e4-76-b1     dynamic   
+  192.168.73.255        ff-ff-ff-ff-ff-ff     static    
+  224.0.0.22            01-00-5e-00-00-16     static    
+  224.0.0.251           01-00-5e-00-00-fb     static    
+  224.0.0.252           01-00-5e-00-00-fc     static    
+  239.255.255.250       01-00-5e-7f-ff-fa     static    
+  255.255.255.255       ff-ff-ff-ff-ff-ff     static    
+
+val getArpTable: unit -> string
+val displayArpTable: unit -> unit
+val it: unit = ()
+
+
+Script Errors:
+
+25/07/2024 4:10:17 PM: Script Output:
+
+Microsoft (R) F# Interactive version 12.8.301.0 for F# 8.0
+Copyright (c) Microsoft Corporation. All Rights Reserved.
+
+For help type #help;;
+
+> ARP Table:
+
+Interface: 192.168.73.128 --- 0x7
+  Internet Address      Physical Address      Type
+  192.168.73.2          00-50-56-f8-8d-4d     dynamic   
+  192.168.73.254        00-50-56-e4-76-b1     dynamic   
+  192.168.73.255        ff-ff-ff-ff-ff-ff     static    
+  224.0.0.22            01-00-5e-00-00-16     static    
+  224.0.0.251           01-00-5e-00-00-fb     static    
+  224.0.0.252           01-00-5e-00-00-fc     static    
+  239.255.255.250       01-00-5e-7f-ff-fa     static    
+  255.255.255.255       ff-ff-ff-ff-ff-ff     static    
+
+val getArpTable: unit -> string
+val displayArpTable: unit -> unit
+val it: unit = ()
+
+
+Script Errors:
+
+25/07/2024 4:10:29 PM: Script Output:
+
+Microsoft (R) F# Interactive version 12.8.301.0 for F# 8.0
+Copyright (c) Microsoft Corporation. All Rights Reserved.
+
+For help type #help;;
+
+> ARP Table:
+
+Interface: 192.168.73.128 --- 0x7
+  Internet Address      Physical Address      Type
+  192.168.73.2          00-50-56-f8-8d-4d     dynamic   
+  192.168.73.254        00-50-56-e4-76-b1     dynamic   
+  192.168.73.255        ff-ff-ff-ff-ff-ff     static    
+  224.0.0.22            01-00-5e-00-00-16     static    
+  224.0.0.251           01-00-5e-00-00-fb     static    
+  224.0.0.252           01-00-5e-00-00-fc     static    
+  239.255.255.250       01-00-5e-7f-ff-fa     static    
+  255.255.255.255       ff-ff-ff-ff-ff-ff     static    
+
+val getArpTable: unit -> string
+val displayArpTable: unit -> unit
+val it: unit = ()
+
+
+Script Errors:
+
+25/07/2024 4:11:51 PM: Script Output:
+
+Microsoft (R) F# Interactive version 12.8.301.0 for F# 8.0
+Copyright (c) Microsoft Corporation. All Rights Reserved.
+
+For help type #help;;
+
+> ARP Table:
+
+Interface: 192.168.73.128 --- 0x7
+  Internet Address      Physical Address      Type
+  192.168.73.2          00-50-56-f8-8d-4d     dynamic   
+  192.168.73.254        00-50-56-e4-76-b1     dynamic   
+  192.168.73.255        ff-ff-ff-ff-ff-ff     static    
+  224.0.0.22            01-00-5e-00-00-16     static    
+  224.0.0.251           01-00-5e-00-00-fb     static    
+  224.0.0.252           01-00-5e-00-00-fc     static    
+  239.255.255.250       01-00-5e-7f-ff-fa     static    
+  255.255.255.255       ff-ff-ff-ff-ff-ff     static    
+
+val getArpTable: unit -> string
+val displayArpTable: unit -> unit
+val it: unit = ()
+
+
+Script Errors:
+
+25/07/2024 4:12:04 PM: Script Output:
+
+Microsoft (R) F# Interactive version 12.8.301.0 for F# 8.0
+Copyright (c) Microsoft Corporation. All Rights Reserved.
+
+For help type #help;;
+
+> ARP Table:
+
+Interface: 192.168.73.128 --- 0x7
+  Internet Address      Physical Address      Type
+  192.168.73.2          00-50-56-f8-8d-4d     dynamic   
+  192.168.73.254        00-50-56-e4-76-b1     dynamic   
+  192.168.73.255        ff-ff-ff-ff-ff-ff     static    
+  224.0.0.22            01-00-5e-00-00-16     static    
+  224.0.0.251           01-00-5e-00-00-fb     static    
+  224.0.0.252           01-00-5e-00-00-fc     static    
+  239.255.255.250       01-00-5e-7f-ff-fa     static    
+  255.255.255.255       ff-ff-ff-ff-ff-ff     static    
+
+val getArpTable: unit -> string
+val displayArpTable: unit -> unit
+val it: unit = ()
+
+
+Script Errors:
+

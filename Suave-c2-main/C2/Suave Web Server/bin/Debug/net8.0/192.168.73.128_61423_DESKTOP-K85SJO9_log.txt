@@ -1,0 +1,829 @@
+25/07/2024 4:36:37 PM: Script Output:
+
+Microsoft (R) F# Interactive version 12.8.301.0 for F# 8.0
+Copyright (c) Microsoft Corporation. All Rights Reserved.
+
+For help type #help;;
+
+> ARP Table:
+
+Interface: 192.168.73.128 --- 0x7
+  Internet Address      Physical Address      Type
+  192.168.73.2          00-50-56-f8-8d-4d     dynamic   
+  192.168.73.254        00-50-56-e4-76-b1     dynamic   
+  192.168.73.255        ff-ff-ff-ff-ff-ff     static    
+  224.0.0.22            01-00-5e-00-00-16     static    
+  224.0.0.251           01-00-5e-00-00-fb     static    
+  224.0.0.252           01-00-5e-00-00-fc     static    
+  239.255.255.250       01-00-5e-7f-ff-fa     static    
+  255.255.255.255       ff-ff-ff-ff-ff-ff     static    
+
+val getArpTable: unit -> string
+val displayArpTable: unit -> unit
+val it: unit = ()
+
+
+Script Errors:
+
+25/07/2024 4:36:44 PM: Script Output:
+
+Microsoft (R) F# Interactive version 12.8.301.0 for F# 8.0
+Copyright (c) Microsoft Corporation. All Rights Reserved.
+
+For help type #help;;
+
+> ARP Table:
+
+Interface: 192.168.73.128 --- 0x7
+  Internet Address      Physical Address      Type
+  192.168.73.2          00-50-56-f8-8d-4d     dynamic   
+  192.168.73.254        00-50-56-e4-76-b1     dynamic   
+  192.168.73.255        ff-ff-ff-ff-ff-ff     static    
+  224.0.0.22            01-00-5e-00-00-16     static    
+  224.0.0.251           01-00-5e-00-00-fb     static    
+  224.0.0.252           01-00-5e-00-00-fc     static    
+  239.255.255.250       01-00-5e-7f-ff-fa     static    
+  255.255.255.255       ff-ff-ff-ff-ff-ff     static    
+
+val getArpTable: unit -> string
+val displayArpTable: unit -> unit
+val it: unit = ()
+
+
+Script Errors:
+
+25/07/2024 4:36:51 PM: Script Output:
+
+Microsoft (R) F# Interactive version 12.8.301.0 for F# 8.0
+Copyright (c) Microsoft Corporation. All Rights Reserved.
+
+For help type #help;;
+
+> ARP Table:
+
+Interface: 192.168.73.128 --- 0x7
+  Internet Address      Physical Address      Type
+  192.168.73.2          00-50-56-f8-8d-4d     dynamic   
+  192.168.73.254        00-50-56-e4-76-b1     dynamic   
+  192.168.73.255        ff-ff-ff-ff-ff-ff     static    
+  224.0.0.22            01-00-5e-00-00-16     static    
+  224.0.0.251           01-00-5e-00-00-fb     static    
+  224.0.0.252           01-00-5e-00-00-fc     static    
+  239.255.255.250       01-00-5e-7f-ff-fa     static    
+  255.255.255.255       ff-ff-ff-ff-ff-ff     static    
+
+val getArpTable: unit -> string
+val displayArpTable: unit -> unit
+val it: unit = ()
+
+
+Script Errors:
+
+25/07/2024 4:36:58 PM: Script Output:
+
+Microsoft (R) F# Interactive version 12.8.301.0 for F# 8.0
+Copyright (c) Microsoft Corporation. All Rights Reserved.
+
+For help type #help;;
+
+> ARP Table:
+
+Interface: 192.168.73.128 --- 0x7
+  Internet Address      Physical Address      Type
+  192.168.73.2          00-50-56-f8-8d-4d     dynamic   
+  192.168.73.254        00-50-56-e4-76-b1     dynamic   
+  192.168.73.255        ff-ff-ff-ff-ff-ff     static    
+  224.0.0.22            01-00-5e-00-00-16     static    
+  224.0.0.251           01-00-5e-00-00-fb     static    
+  224.0.0.252           01-00-5e-00-00-fc     static    
+  239.255.255.250       01-00-5e-7f-ff-fa     static    
+  255.255.255.255       ff-ff-ff-ff-ff-ff     static    
+
+val getArpTable: unit -> string
+val displayArpTable: unit -> unit
+val it: unit = ()
+
+
+Script Errors:
+
+25/07/2024 4:37:05 PM: Script Output:
+
+Microsoft (R) F# Interactive version 12.8.301.0 for F# 8.0
+Copyright (c) Microsoft Corporation. All Rights Reserved.
+
+For help type #help;;
+
+> ARP Table:
+
+Interface: 192.168.73.128 --- 0x7
+  Internet Address      Physical Address      Type
+  192.168.73.2          00-50-56-f8-8d-4d     dynamic   
+  192.168.73.254        00-50-56-e4-76-b1     dynamic   
+  192.168.73.255        ff-ff-ff-ff-ff-ff     static    
+  224.0.0.22            01-00-5e-00-00-16     static    
+  224.0.0.251           01-00-5e-00-00-fb     static    
+  224.0.0.252           01-00-5e-00-00-fc     static    
+  239.255.255.250       01-00-5e-7f-ff-fa     static    
+  255.255.255.255       ff-ff-ff-ff-ff-ff     static    
+
+val getArpTable: unit -> string
+val displayArpTable: unit -> unit
+val it: unit = ()
+
+
+Script Errors:
+
+25/07/2024 4:37:12 PM: Script Output:
+
+Microsoft (R) F# Interactive version 12.8.301.0 for F# 8.0
+Copyright (c) Microsoft Corporation. All Rights Reserved.
+
+For help type #help;;
+
+> ARP Table:
+
+Interface: 192.168.73.128 --- 0x7
+  Internet Address      Physical Address      Type
+  192.168.73.2          00-50-56-f8-8d-4d     dynamic   
+  192.168.73.254        00-50-56-e4-76-b1     dynamic   
+  192.168.73.255        ff-ff-ff-ff-ff-ff     static    
+  224.0.0.22            01-00-5e-00-00-16     static    
+  224.0.0.251           01-00-5e-00-00-fb     static    
+  224.0.0.252           01-00-5e-00-00-fc     static    
+  239.255.255.250       01-00-5e-7f-ff-fa     static    
+  255.255.255.255       ff-ff-ff-ff-ff-ff     static    
+
+val getArpTable: unit -> string
+val displayArpTable: unit -> unit
+val it: unit = ()
+
+
+Script Errors:
+
+25/07/2024 4:37:19 PM: Script Output:
+
+Microsoft (R) F# Interactive version 12.8.301.0 for F# 8.0
+Copyright (c) Microsoft Corporation. All Rights Reserved.
+
+For help type #help;;
+
+> ARP Table:
+
+Interface: 192.168.73.128 --- 0x7
+  Internet Address      Physical Address      Type
+  192.168.73.2          00-50-56-f8-8d-4d     dynamic   
+  192.168.73.254        00-50-56-e4-76-b1     dynamic   
+  192.168.73.255        ff-ff-ff-ff-ff-ff     static    
+  224.0.0.22            01-00-5e-00-00-16     static    
+  224.0.0.251           01-00-5e-00-00-fb     static    
+  224.0.0.252           01-00-5e-00-00-fc     static    
+  239.255.255.250       01-00-5e-7f-ff-fa     static    
+  255.255.255.255       ff-ff-ff-ff-ff-ff     static    
+
+val getArpTable: unit -> string
+val displayArpTable: unit -> unit
+val it: unit = ()
+
+
+Script Errors:
+
+25/07/2024 4:37:26 PM: Script Output:
+
+Microsoft (R) F# Interactive version 12.8.301.0 for F# 8.0
+Copyright (c) Microsoft Corporation. All Rights Reserved.
+
+For help type #help;;
+
+> ARP Table:
+
+Interface: 192.168.73.128 --- 0x7
+  Internet Address      Physical Address      Type
+  192.168.73.2          00-50-56-f8-8d-4d     dynamic   
+  192.168.73.254        00-50-56-e4-76-b1     dynamic   
+  192.168.73.255        ff-ff-ff-ff-ff-ff     static    
+  224.0.0.22            01-00-5e-00-00-16     static    
+  224.0.0.251           01-00-5e-00-00-fb     static    
+  224.0.0.252           01-00-5e-00-00-fc     static    
+  239.255.255.250       01-00-5e-7f-ff-fa     static    
+  255.255.255.255       ff-ff-ff-ff-ff-ff     static    
+
+val getArpTable: unit -> string
+val displayArpTable: unit -> unit
+val it: unit = ()
+
+
+Script Errors:
+
+25/07/2024 4:37:33 PM: Script Output:
+
+Microsoft (R) F# Interactive version 12.8.301.0 for F# 8.0
+Copyright (c) Microsoft Corporation. All Rights Reserved.
+
+For help type #help;;
+
+> ARP Table:
+
+Interface: 192.168.73.128 --- 0x7
+  Internet Address      Physical Address      Type
+  192.168.73.2          00-50-56-f8-8d-4d     dynamic   
+  192.168.73.254        00-50-56-e4-76-b1     dynamic   
+  192.168.73.255        ff-ff-ff-ff-ff-ff     static    
+  224.0.0.22            01-00-5e-00-00-16     static    
+  224.0.0.251           01-00-5e-00-00-fb     static    
+  224.0.0.252           01-00-5e-00-00-fc     static    
+  239.255.255.250       01-00-5e-7f-ff-fa     static    
+  255.255.255.255       ff-ff-ff-ff-ff-ff     static    
+
+val getArpTable: unit -> string
+val displayArpTable: unit -> unit
+val it: unit = ()
+
+
+Script Errors:
+
+25/07/2024 4:37:40 PM: Script Output:
+
+Microsoft (R) F# Interactive version 12.8.301.0 for F# 8.0
+Copyright (c) Microsoft Corporation. All Rights Reserved.
+
+For help type #help;;
+
+> ARP Table:
+
+Interface: 192.168.73.128 --- 0x7
+  Internet Address      Physical Address      Type
+  192.168.73.2          00-50-56-f8-8d-4d     dynamic   
+  192.168.73.254        00-50-56-e4-76-b1     dynamic   
+  192.168.73.255        ff-ff-ff-ff-ff-ff     static    
+  224.0.0.22            01-00-5e-00-00-16     static    
+  224.0.0.251           01-00-5e-00-00-fb     static    
+  224.0.0.252           01-00-5e-00-00-fc     static    
+  239.255.255.250       01-00-5e-7f-ff-fa     static    
+  255.255.255.255       ff-ff-ff-ff-ff-ff     static    
+
+val getArpTable: unit -> string
+val displayArpTable: unit -> unit
+val it: unit = ()
+
+
+Script Errors:
+
+25/07/2024 5:47:53 PM: Client checked in
+25/07/2024 5:47:59 PM: Client checked in
+25/07/2024 5:48:04 PM: Client checked in
+25/07/2024 5:48:09 PM: Client checked in
+25/07/2024 5:48:14 PM: Client checked in
+25/07/2024 5:48:19 PM: Client checked in
+25/07/2024 5:48:24 PM: Client checked in
+25/07/2024 5:48:29 PM: Client checked in
+25/07/2024 5:48:34 PM: Client checked in
+25/07/2024 5:48:39 PM: Client checked in
+25/07/2024 5:48:44 PM: Client checked in
+25/07/2024 5:48:49 PM: Client checked in
+25/07/2024 5:48:54 PM: Client checked in
+25/07/2024 5:48:59 PM: Client checked in
+25/07/2024 5:49:04 PM: Client checked in
+25/07/2024 5:49:09 PM: Client checked in
+25/07/2024 5:49:14 PM: Client checked in
+25/07/2024 5:49:19 PM: Client checked in
+25/07/2024 5:49:24 PM: Client checked in
+25/07/2024 5:49:29 PM: Client checked in
+25/07/2024 5:49:34 PM: Client checked in
+25/07/2024 5:49:39 PM: Client checked in
+25/07/2024 5:49:44 PM: Client checked in
+25/07/2024 5:52:25 PM: Client checked in
+25/07/2024 5:52:30 PM: Client checked in
+25/07/2024 5:52:35 PM: Client checked in
+25/07/2024 5:52:40 PM: Client checked in
+25/07/2024 5:52:45 PM: Client checked in
+25/07/2024 5:52:50 PM: Client checked in
+25/07/2024 5:52:55 PM: Client checked in
+25/07/2024 5:53:00 PM: Client checked in
+25/07/2024 5:57:37 PM: Script Output:
+
+Microsoft (R) F# Interactive version 12.8.301.0 for F# 8.0
+Copyright (c) Microsoft Corporation. All Rights Reserved.
+
+For help type #help;;
+
+> 
+Script Errors:
+
+  No Script Path
+  ^^
+
+stdin(1,1): error FS0039: The value or constructor 'No' is not defined.
+
+
+25/07/2024 5:57:49 PM: Script Output:
+
+Microsoft (R) F# Interactive version 12.8.301.0 for F# 8.0
+Copyright (c) Microsoft Corporation. All Rights Reserved.
+
+For help type #help;;
+
+> 
+Script Errors:
+
+  No Script Path
+  ^^
+
+stdin(1,1): error FS0039: The value or constructor 'No' is not defined.
+
+
+25/07/2024 5:58:00 PM: Script Output:
+
+Microsoft (R) F# Interactive version 12.8.301.0 for F# 8.0
+Copyright (c) Microsoft Corporation. All Rights Reserved.
+
+For help type #help;;
+
+> 
+Script Errors:
+
+  No Script Path
+  ^^
+
+stdin(1,1): error FS0039: The value or constructor 'No' is not defined.
+
+
+25/07/2024 5:58:12 PM: Script Output:
+
+Microsoft (R) F# Interactive version 12.8.301.0 for F# 8.0
+Copyright (c) Microsoft Corporation. All Rights Reserved.
+
+For help type #help;;
+
+> 
+Script Errors:
+
+  No Script Path
+  ^^
+
+stdin(1,1): error FS0039: The value or constructor 'No' is not defined.
+
+
+25/07/2024 5:58:23 PM: Script Output:
+
+Microsoft (R) F# Interactive version 12.8.301.0 for F# 8.0
+Copyright (c) Microsoft Corporation. All Rights Reserved.
+
+For help type #help;;
+
+> 
+Script Errors:
+
+  No Script Path
+  ^^
+
+stdin(1,1): error FS0039: The value or constructor 'No' is not defined.
+
+
+25/07/2024 5:58:35 PM: Script Output:
+
+Microsoft (R) F# Interactive version 12.8.301.0 for F# 8.0
+Copyright (c) Microsoft Corporation. All Rights Reserved.
+
+For help type #help;;
+
+> 
+Script Errors:
+
+  No Script Path
+  ^^
+
+stdin(1,1): error FS0039: The value or constructor 'No' is not defined.
+
+
+25/07/2024 6:10:06 PM: Script Output:
+
+Microsoft (R) F# Interactive version 12.8.301.0 for F# 8.0
+Copyright (c) Microsoft Corporation. All Rights Reserved.
+
+For help type #help;;
+
+> 
+Script Errors:
+
+  No Script Path
+  ^^
+
+stdin(1,1): error FS0039: The value or constructor 'No' is not defined.
+
+
+25/07/2024 6:10:18 PM: Script Output:
+
+Microsoft (R) F# Interactive version 12.8.301.0 for F# 8.0
+Copyright (c) Microsoft Corporation. All Rights Reserved.
+
+For help type #help;;
+
+> 
+Script Errors:
+
+  No Script Path
+  ^^
+
+stdin(1,1): error FS0039: The value or constructor 'No' is not defined.
+
+
+25/07/2024 6:10:29 PM: Script Output:
+
+Microsoft (R) F# Interactive version 12.8.301.0 for F# 8.0
+Copyright (c) Microsoft Corporation. All Rights Reserved.
+
+For help type #help;;
+
+> 
+Script Errors:
+
+  No Script Path
+  ^^
+
+stdin(1,1): error FS0039: The value or constructor 'No' is not defined.
+
+
+25/07/2024 6:18:43 PM: Script Output:
+
+Microsoft (R) F# Interactive version 12.8.301.0 for F# 8.0
+Copyright (c) Microsoft Corporation. All Rights Reserved.
+
+For help type #help;;
+
+> 
+Script Errors:
+
+  No Script Path
+  ^^
+
+stdin(1,1): error FS0039: The value or constructor 'No' is not defined.
+
+
+25/07/2024 6:18:55 PM: Script Output:
+
+Microsoft (R) F# Interactive version 12.8.301.0 for F# 8.0
+Copyright (c) Microsoft Corporation. All Rights Reserved.
+
+For help type #help;;
+
+> 
+Script Errors:
+
+  No Script Path
+  ^^
+
+stdin(1,1): error FS0039: The value or constructor 'No' is not defined.
+
+
+25/07/2024 6:19:06 PM: Script Output:
+
+Microsoft (R) F# Interactive version 12.8.301.0 for F# 8.0
+Copyright (c) Microsoft Corporation. All Rights Reserved.
+
+For help type #help;;
+
+> 
+Script Errors:
+
+  No Script Path
+  ^^
+
+stdin(1,1): error FS0039: The value or constructor 'No' is not defined.
+
+
+25/07/2024 6:19:18 PM: Script Output:
+
+Microsoft (R) F# Interactive version 12.8.301.0 for F# 8.0
+Copyright (c) Microsoft Corporation. All Rights Reserved.
+
+For help type #help;;
+
+> 
+Script Errors:
+
+  No Script Path
+  ^^
+
+stdin(1,1): error FS0039: The value or constructor 'No' is not defined.
+
+
+25/07/2024 6:19:29 PM: Script Output:
+
+Microsoft (R) F# Interactive version 12.8.301.0 for F# 8.0
+Copyright (c) Microsoft Corporation. All Rights Reserved.
+
+For help type #help;;
+
+> 
+Script Errors:
+
+  No Script Path
+  ^^
+
+stdin(1,1): error FS0039: The value or constructor 'No' is not defined.
+
+
+25/07/2024 6:19:41 PM: Script Output:
+
+Microsoft (R) F# Interactive version 12.8.301.0 for F# 8.0
+Copyright (c) Microsoft Corporation. All Rights Reserved.
+
+For help type #help;;
+
+> 
+Script Errors:
+
+  No Script Path
+  ^^
+
+stdin(1,1): error FS0039: The value or constructor 'No' is not defined.
+
+
+25/07/2024 6:19:53 PM: Script Output:
+
+Microsoft (R) F# Interactive version 12.8.301.0 for F# 8.0
+Copyright (c) Microsoft Corporation. All Rights Reserved.
+
+For help type #help;;
+
+> 
+Script Errors:
+
+  No Script Path
+  ^^
+
+stdin(1,1): error FS0039: The value or constructor 'No' is not defined.
+
+
+25/07/2024 6:20:04 PM: Script Output:
+
+Microsoft (R) F# Interactive version 12.8.301.0 for F# 8.0
+Copyright (c) Microsoft Corporation. All Rights Reserved.
+
+For help type #help;;
+
+> 
+Script Errors:
+
+  No Script Path
+  ^^
+
+stdin(1,1): error FS0039: The value or constructor 'No' is not defined.
+
+
+25/07/2024 6:20:16 PM: Script Output:
+
+Microsoft (R) F# Interactive version 12.8.301.0 for F# 8.0
+Copyright (c) Microsoft Corporation. All Rights Reserved.
+
+For help type #help;;
+
+> 
+Script Errors:
+
+  No Script Path
+  ^^
+
+stdin(1,1): error FS0039: The value or constructor 'No' is not defined.
+
+
+25/07/2024 6:20:27 PM: Script Output:
+
+Microsoft (R) F# Interactive version 12.8.301.0 for F# 8.0
+Copyright (c) Microsoft Corporation. All Rights Reserved.
+
+For help type #help;;
+
+> 
+Script Errors:
+
+  No Script Path
+  ^^
+
+stdin(1,1): error FS0039: The value or constructor 'No' is not defined.
+
+
+25/07/2024 6:20:39 PM: Script Output:
+
+Microsoft (R) F# Interactive version 12.8.301.0 for F# 8.0
+Copyright (c) Microsoft Corporation. All Rights Reserved.
+
+For help type #help;;
+
+> 
+Script Errors:
+
+  No Script Path
+  ^^
+
+stdin(1,1): error FS0039: The value or constructor 'No' is not defined.
+
+
+25/07/2024 6:20:50 PM: Script Output:
+
+Microsoft (R) F# Interactive version 12.8.301.0 for F# 8.0
+Copyright (c) Microsoft Corporation. All Rights Reserved.
+
+For help type #help;;
+
+> 
+Script Errors:
+
+  No Script Path
+  ^^
+
+stdin(1,1): error FS0039: The value or constructor 'No' is not defined.
+
+
+25/07/2024 6:21:02 PM: Script Output:
+
+Microsoft (R) F# Interactive version 12.8.301.0 for F# 8.0
+Copyright (c) Microsoft Corporation. All Rights Reserved.
+
+For help type #help;;
+
+> 
+Script Errors:
+
+  No Script Path
+  ^^
+
+stdin(1,1): error FS0039: The value or constructor 'No' is not defined.
+
+
+25/07/2024 6:21:13 PM: Script Output:
+
+Microsoft (R) F# Interactive version 12.8.301.0 for F# 8.0
+Copyright (c) Microsoft Corporation. All Rights Reserved.
+
+For help type #help;;
+
+> 
+Script Errors:
+
+  No Script Path
+  ^^
+
+stdin(1,1): error FS0039: The value or constructor 'No' is not defined.
+
+
+25/07/2024 6:21:25 PM: Script Output:
+
+Microsoft (R) F# Interactive version 12.8.301.0 for F# 8.0
+Copyright (c) Microsoft Corporation. All Rights Reserved.
+
+For help type #help;;
+
+> 
+Script Errors:
+
+  No Script Path
+  ^^
+
+stdin(1,1): error FS0039: The value or constructor 'No' is not defined.
+
+
+25/07/2024 6:21:36 PM: Script Output:
+
+Microsoft (R) F# Interactive version 12.8.301.0 for F# 8.0
+Copyright (c) Microsoft Corporation. All Rights Reserved.
+
+For help type #help;;
+
+> 
+Script Errors:
+
+  No Script Path
+  ^^
+
+stdin(1,1): error FS0039: The value or constructor 'No' is not defined.
+
+
+25/07/2024 6:21:48 PM: Script Output:
+
+Microsoft (R) F# Interactive version 12.8.301.0 for F# 8.0
+Copyright (c) Microsoft Corporation. All Rights Reserved.
+
+For help type #help;;
+
+> 
+Script Errors:
+
+  No Script Path
+  ^^
+
+stdin(1,1): error FS0039: The value or constructor 'No' is not defined.
+
+
+25/07/2024 6:21:59 PM: Script Output:
+
+Microsoft (R) F# Interactive version 12.8.301.0 for F# 8.0
+Copyright (c) Microsoft Corporation. All Rights Reserved.
+
+For help type #help;;
+
+> 
+Script Errors:
+
+  No Script Path
+  ^^
+
+stdin(1,1): error FS0039: The value or constructor 'No' is not defined.
+
+
+25/07/2024 6:22:11 PM: Script Output:
+
+Microsoft (R) F# Interactive version 12.8.301.0 for F# 8.0
+Copyright (c) Microsoft Corporation. All Rights Reserved.
+
+For help type #help;;
+
+> 
+Script Errors:
+
+  No Script Path
+  ^^
+
+stdin(1,1): error FS0039: The value or constructor 'No' is not defined.
+
+
+25/07/2024 6:22:27 PM: Script Output:
+
+Microsoft (R) F# Interactive version 12.8.301.0 for F# 8.0
+Copyright (c) Microsoft Corporation. All Rights Reserved.
+
+For help type #help;;
+
+> 
+Script Errors:
+
+  No Script Path
+  ^^
+
+stdin(1,1): error FS0039: The value or constructor 'No' is not defined.
+
+
+25/07/2024 6:22:39 PM: Script Output:
+
+Microsoft (R) F# Interactive version 12.8.301.0 for F# 8.0
+Copyright (c) Microsoft Corporation. All Rights Reserved.
+
+For help type #help;;
+
+> 
+Script Errors:
+
+  No Script Path
+  ^^
+
+stdin(1,1): error FS0039: The value or constructor 'No' is not defined.
+
+
+25/07/2024 6:22:51 PM: Script Output:
+
+Microsoft (R) F# Interactive version 12.8.301.0 for F# 8.0
+Copyright (c) Microsoft Corporation. All Rights Reserved.
+
+For help type #help;;
+
+> 
+Script Errors:
+
+  No Script Path
+  ^^
+
+stdin(1,1): error FS0039: The value or constructor 'No' is not defined.
+
+
+25/07/2024 6:23:02 PM: Script Output:
+
+Microsoft (R) F# Interactive version 12.8.301.0 for F# 8.0
+Copyright (c) Microsoft Corporation. All Rights Reserved.
+
+For help type #help;;
+
+> 
+Script Errors:
+
+  No Script Path
+  ^^
+
+stdin(1,1): error FS0039: The value or constructor 'No' is not defined.
+
+
+25/07/2024 6:23:14 PM: Script Output:
+
+Microsoft (R) F# Interactive version 12.8.301.0 for F# 8.0
+Copyright (c) Microsoft Corporation. All Rights Reserved.
+
+For help type #help;;
+
+> 
+Script Errors:
+
+  No Script Path
+  ^^
+
+stdin(1,1): error FS0039: The value or constructor 'No' is not defined.
+
+
