@@ -38,9 +38,8 @@ let interactWithClient (clientId: string) =
 let changeScriptPath (clientId: string) (scriptPath: string) =
     async {
         try
-            let content = sprintf "scriptPath=%s" scriptPath
-            let contentString = new StringContent(content, System.Text.Encoding.UTF8, "application/x-www-form-urlencoded")
-            let! response = httpClient.PostAsync(sprintf "%s/clients/%s/script" baseUrl clientId, contentString) |> Async.AwaitTask
+            let content = new StringContent(scriptPath, System.Text.Encoding.UTF8, "text/plain")
+            let! response = httpClient.PostAsync(sprintf "%s/setScript?clientId=%s" baseUrl clientId, content) |> Async.AwaitTask
             if response.IsSuccessStatusCode then
                 let! responseText = response.Content.ReadAsStringAsync() |> Async.AwaitTask
                 printfn "Response:\n%s" responseText
@@ -56,7 +55,7 @@ let handleInput () =
         while true do
             printfn "Enter command (list / interact <clientId> / set <clientId> <scriptPath> / exit):"
             let input = Console.ReadLine()
-            match input.Split([| ' ' |], 2, StringSplitOptions.None) with
+            match input.Split([| ' ' |], StringSplitOptions.RemoveEmptyEntries) with
             | [| "list" |] ->
                 do! listClients ()
             | [| "interact"; clientId |] ->
