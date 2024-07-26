@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\61423\\Desktop\\Suave-c2-main\\Suave-c2-main\\C2\\agent\\agent.fsproj": {}
+    "C:\\Users\\61423\\Desktop\\F# projects\\C2\\agent\\agent.fsproj": {}
   },
   "projects": {
-    "C:\\Users\\61423\\Desktop\\Suave-c2-main\\Suave-c2-main\\C2\\agent\\agent.fsproj": {
+    "C:\\Users\\61423\\Desktop\\F# projects\\C2\\agent\\agent.fsproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\61423\\Desktop\\Suave-c2-main\\Suave-c2-main\\C2\\agent\\agent.fsproj",
+        "projectUniqueName": "C:\\Users\\61423\\Desktop\\F# projects\\C2\\agent\\agent.fsproj",
         "projectName": "agent",
-        "projectPath": "C:\\Users\\61423\\Desktop\\Suave-c2-main\\Suave-c2-main\\C2\\agent\\agent.fsproj",
+        "projectPath": "C:\\Users\\61423\\Desktop\\F# projects\\C2\\agent\\agent.fsproj",
         "packagesPath": "C:\\Users\\61423\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\61423\\Desktop\\Suave-c2-main\\Suave-c2-main\\C2\\agent\\obj\\",
+        "outputPath": "C:\\Users\\61423\\Desktop\\F# projects\\C2\\agent\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\61423\\AppData\\Roaming\\NuGet\\NuGet.Config"

