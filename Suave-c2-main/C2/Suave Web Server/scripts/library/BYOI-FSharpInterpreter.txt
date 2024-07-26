@@ -1,0 +1,50 @@
+###Check if dotnet is installed
+dotnet --version
+
+###Option 1 for Bring Your Own Interpreter from Command Line:
+
+curl -LO https://download.visualstudio.microsoft.com/download/pr/7a7c8976-4c1b-4ae2-9447-1ec2a673b496/9c7c93d22db6a0aeb2f59a9d6502d45b/dotnet-sdk-8.0.204-win-x64.exe
+dotnet-sdk-8.0.204-win-x64.exe /quiet /norestart
+
+###Option 2 for Bring Your Own Interpreter from Command Line:
+
+# Define URLs and paths
+$dotnetDownloadUrl = "https://download.visualstudio.microsoft.com/download/pr/7a7c8976-4c1b-4ae2-9447-1ec2a673b496/9c7c93d22db6a0aeb2f59a9d6502d45b/dotnet-sdk-8.0.204-win-x64.exe"
+$installerPath = "$env:TEMP\dotnet-sdk-installer.exe"
+
+# Download the .NET SDK installer
+Invoke-WebRequest -Uri $dotnetDownloadUrl -OutFile $installerPath
+
+# Install the .NET SDK silently
+Start-Process -FilePath $installerPath -ArgumentList "/quiet", "/norestart" -NoNewWindow -Wait
+
+
+
+###Option 3 with Scheduled Tasks to bypass UAC
+
+$taskName = "InstallDotNetSDK"
+$taskPath = "$env:TEMP\dotnet-sdk-installer.exe"
+$installerUrl = "https://download.visualstudio.microsoft.com/download/pr/7a7c8976-4c1b-4ae2-9447-1ec2a673b496/9c7c93d22db6a0aeb2f59a9d6502d45b/dotnet-sdk-8.0.204-win-x64.exe"
+
+# Download the .NET SDK installer
+Invoke-WebRequest -Uri $installerUrl -OutFile $taskPath
+
+# Define the action to run the installer
+$action = New-ScheduledTaskAction -Execute "$taskPath" -Argument "/quiet /norestart"
+
+# Define the principal to run the task with highest privileges
+$principal = New-ScheduledTaskPrincipal -UserId "SYSTEM" -LogonType ServiceAccount
+
+# Define the trigger (immediate)
+$trigger = New-ScheduledTaskTrigger -AtStartup
+
+# Register the task
+Register-ScheduledTask -TaskName $taskName -Action $action -Principal $principal -Trigger $trigger
+
+# Run the scheduled task immediately
+Start-ScheduledTask -TaskName $taskName
+
+
+
+### Verify the installation
+dotnet --version
