@@ -22,6 +22,17 @@ let getMachineDetails () =
         printfn "Error fetching machine details: %s" ex.Message
         "Unknown_Client"
 
+// Function to download the script content as a string
+let downloadScriptContent (url: string) =
+    try
+        use client = new WebClient()
+        let scriptContent = client.DownloadString(Uri(url))
+        Some scriptContent
+    with
+    | ex -> 
+        printfn "Error downloading script: %s" ex.Message
+        None
+
 // Function to send output to the web server
 let sendOutputToServer (url: string) (message: string) (sessionId: string) =
     try
@@ -36,32 +47,66 @@ let sendOutputToServer (url: string) (message: string) (sessionId: string) =
     | ex -> 
         printfn "Error sending output to server: %s" ex.Message
 
-// Function to run a command and return its output
-let runCommand (command: string) =
+// Function to run the downloaded script content using dotnet fsi
+let runScriptContent (scriptContent: string) (sessionId: string) =
     try
-        let startInfo = ProcessStartInfo(
-            FileName = "cmd.exe",  // Use cmd.exe for Windows
-            Arguments = sprintf "/c %s" command,  // /c to execute the command and then terminate
-            RedirectStandardOutput = true,
-            RedirectStandardError = true,
-            UseShellExecute = false,
-            CreateNoWindow = true
-        )
-        
-        use proc = new Process()  // Renamed from process to proc
-        proc.StartInfo <- startInfo
-        proc.Start() |> ignore
+        let startInfo = ProcessStartInfo()
+        startInfo.FileName <- "dotnet"  // Use dotnet to run fsi
+        startInfo.Arguments <- "fsi"   // Arguments to run fsi
+        startInfo.UseShellExecute <- false
+        startInfo.RedirectStandardOutput <- true
+        startInfo.RedirectStandardError <- true
+        startInfo.RedirectStandardInput <- true
+        startInfo.CreateNoWindow <- true
+
+        use proc = Process.Start(startInfo)
+        use stdInput = proc.StandardInput
+
+        // Write the script content to the standard input of dotnet fsi
+        stdInput.AutoFlush <- true
+        stdInput.Write(scriptContent)
+        stdInput.Close()
 
         let output = proc.StandardOutput.ReadToEnd()
-        let error = proc.StandardError.ReadToEnd()
+        let errors = proc.StandardError.ReadToEnd()
         proc.WaitForExit()
 
-        if proc.ExitCode = 0 then
-            Some output
-        else
-            Some (sprintf "Error: %s" error)
+        printfn "Script Output:\n%s" output
+        if errors.Length > 0 then
+            printfn "Script Errors:\n%s" errors
+
+        // Send the output and errors to the web server
+        let fullOutput = "Script Output:\n" + output + "\nScript Errors:\n" + errors
+        sendOutputToServer "http://192.168.8.107:8000" fullOutput sessionId
     with
-    | ex -> Some (sprintf "Exception: %s" ex.Message)
+    | ex -> 
+        printfn "Error running script: %s" ex.Message
+        sendOutputToServer "http://192.168.8.107:8000" (sprintf "Exception: %s" ex.Message) sessionId
+
+// Function to check for new scripts and run them
+let checkForNewScripts (sessionId: string) =
+    async {
+        while true do
+            try
+                use client = new HttpClient()
+                let! response = client.GetStringAsync(sprintf "http://192.168.8.107:8000/clients/%s/currentScript" sessionId) |> Async.AwaitTask
+                if response <> "" then
+                    printfn "New script path received: %s" response
+                    match downloadScriptContent response with
+                    | Some scriptContent -> runScriptContent scriptContent sessionId
+                    | None -> printfn "Failed to download the script."
+            with
+            | ex -> printfn "Error checking for new scripts: %s" ex.Message
+            do! Async.Sleep(10000) // Wait for 10 seconds before checking again
+    }
+
+// Function to execute the default script on the first check-in
+let executeDefaultScript (sessionId: string) =
+    async {
+        match downloadScriptContent "http://192.168.8.107:8000/scripts/defaultscript/defaultscript.txt" with
+        | Some scriptContent -> runScriptContent scriptContent sessionId
+        | None -> printfn "Failed to download the default script."
+    }
 
 // Function to execute the script download and run logic
 let executeScript (sessionId: string) =
@@ -73,6 +118,12 @@ let executeScript (sessionId: string) =
             let! response = client.PostAsync("http://192.168.8.107:8000/registerClient", content) |> Async.AwaitTask
             if response.IsSuccessStatusCode then
                 printfn "Client registered successfully with session ID: %s" sessionId
+
+                // Execute the default script on the first check-in
+                do! executeDefaultScript sessionId
+
+                // Start checking for new scripts
+                Async.Start(checkForNewScripts sessionId)
             else
                 printfn "Failed to register client: %s" (response.ReasonPhrase)
         with
@@ -87,13 +138,8 @@ let main argv =
     let sessionId = sprintf "Session%d" 1 // Set initial session ID
     executeScript sessionId |> Async.RunSynchronously
     
-    // Loop to check for new scripts every 10 seconds
+    // Keep the application running
     while true do
-        // Sleep for 10 seconds
         Thread.Sleep(10000)
-        // Execute the command
-        match runCommand "cd" with
-        | Some result -> printfn "Command Output:\n%s" result
-        | None -> printfn "Failed to run the command."
 
     0 // return an integer exit code
