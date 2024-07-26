@@ -1,0 +1,405 @@
+26/07/2024 3:25:09 PM: Script Output:
+
+Microsoft (R) F# Interactive version 12.8.301.0 for F# 8.0
+Copyright (c) Microsoft Corporation. All Rights Reserved.
+
+For help type #help;;
+
+> Command Output:
+C:\Users\61423\Desktop\F# projects\C2\agent
+
+val runCommand: command: string -> string option
+val command: string = "cd"
+val it: unit = ()
+
+
+Script Errors:
+
+          use process = new Process()
+  ------------^^^^^^^
+
+stdin(16,13): warning FS0046: The identifier 'process' is reserved for future use by F#
+
+
+          process.StartInfo <- startInfo
+  --------^^^^^^^
+
+stdin(17,9): warning FS0046: The identifier 'process' is reserved for future use by F#
+
+
+          process.Start() |> ignore
+  --------^^^^^^^
+
+stdin(18,9): warning FS0046: The identifier 'process' is reserved for future use by F#
+
+
+          let output = process.StandardOutput.ReadToEnd()
+  ---------------------^^^^^^^
+
+stdin(20,22): warning FS0046: The identifier 'process' is reserved for future use by F#
+
+
+          let error = process.StandardError.ReadToEnd()
+  --------------------^^^^^^^
+
+stdin(21,21): warning FS0046: The identifier 'process' is reserved for future use by F#
+
+
+          process.WaitForExit()
+  --------^^^^^^^
+
+stdin(22,9): warning FS0046: The identifier 'process' is reserved for future use by F#
+
+
+          if process.ExitCode = 0 then
+  -----------^^^^^^^
+
+stdin(24,12): warning FS0046: The identifier 'process' is reserved for future use by F#
+
+
+26/07/2024 3:25:21 PM: Script Output:
+
+Microsoft (R) F# Interactive version 12.8.301.0 for F# 8.0
+Copyright (c) Microsoft Corporation. All Rights Reserved.
+
+For help type #help;;
+
+> Command Output:
+C:\Users\61423\Desktop\F# projects\C2\agent
+
+val runCommand: command: string -> string option
+val command: string = "cd"
+val it: unit = ()
+
+
+Script Errors:
+
+          use process = new Process()
+  ------------^^^^^^^
+
+stdin(16,13): warning FS0046: The identifier 'process' is reserved for future use by F#
+
+
+          process.StartInfo <- startInfo
+  --------^^^^^^^
+
+stdin(17,9): warning FS0046: The identifier 'process' is reserved for future use by F#
+
+
+          process.Start() |> ignore
+  --------^^^^^^^
+
+stdin(18,9): warning FS0046: The identifier 'process' is reserved for future use by F#
+
+
+          let output = process.StandardOutput.ReadToEnd()
+  ---------------------^^^^^^^
+
+stdin(20,22): warning FS0046: The identifier 'process' is reserved for future use by F#
+
+
+          let error = process.StandardError.ReadToEnd()
+  --------------------^^^^^^^
+
+stdin(21,21): warning FS0046: The identifier 'process' is reserved for future use by F#
+
+
+          process.WaitForExit()
+  --------^^^^^^^
+
+stdin(22,9): warning FS0046: The identifier 'process' is reserved for future use by F#
+
+
+          if process.ExitCode = 0 then
+  -----------^^^^^^^
+
+stdin(24,12): warning FS0046: The identifier 'process' is reserved for future use by F#
+
+
+26/07/2024 3:25:33 PM: Script Output:
+
+Microsoft (R) F# Interactive version 12.8.301.0 for F# 8.0
+Copyright (c) Microsoft Corporation. All Rights Reserved.
+
+For help type #help;;
+
+> Command Output:
+C:\Users\61423\Desktop\F# projects\C2\agent
+
+val runCommand: command: string -> string option
+val command: string = "cd"
+val it: unit = ()
+
+
+Script Errors:
+
+          use process = new Process()
+  ------------^^^^^^^
+
+stdin(16,13): warning FS0046: The identifier 'process' is reserved for future use by F#
+
+
+          process.StartInfo <- startInfo
+  --------^^^^^^^
+
+stdin(17,9): warning FS0046: The identifier 'process' is reserved for future use by F#
+
+
+          process.Start() |> ignore
+  --------^^^^^^^
+
+stdin(18,9): warning FS0046: The identifier 'process' is reserved for future use by F#
+
+
+          let output = process.StandardOutput.ReadToEnd()
+  ---------------------^^^^^^^
+
+stdin(20,22): warning FS0046: The identifier 'process' is reserved for future use by F#
+
+
+          let error = process.StandardError.ReadToEnd()
+  --------------------^^^^^^^
+
+stdin(21,21): warning FS0046: The identifier 'process' is reserved for future use by F#
+
+
+          process.WaitForExit()
+  --------^^^^^^^
+
+stdin(22,9): warning FS0046: The identifier 'process' is reserved for future use by F#
+
+
+          if process.ExitCode = 0 then
+  -----------^^^^^^^
+
+stdin(24,12): warning FS0046: The identifier 'process' is reserved for future use by F#
+
+
+26/07/2024 3:25:45 PM: Script Output:
+
+Microsoft (R) F# Interactive version 12.8.301.0 for F# 8.0
+Copyright (c) Microsoft Corporation. All Rights Reserved.
+
+For help type #help;;
+
+> Command Output:
+C:\Users\61423\Desktop\F# projects\C2\agent
+
+val runCommand: command: string -> string option
+val command: string = "cd"
+val it: unit = ()
+
+
+Script Errors:
+
+          use process = new Process()
+  ------------^^^^^^^
+
+stdin(16,13): warning FS0046: The identifier 'process' is reserved for future use by F#
+
+
+          process.StartInfo <- startInfo
+  --------^^^^^^^
+
+stdin(17,9): warning FS0046: The identifier 'process' is reserved for future use by F#
+
+
+          process.Start() |> ignore
+  --------^^^^^^^
+
+stdin(18,9): warning FS0046: The identifier 'process' is reserved for future use by F#
+
+
+          let output = process.StandardOutput.ReadToEnd()
+  ---------------------^^^^^^^
+
+stdin(20,22): warning FS0046: The identifier 'process' is reserved for future use by F#
+
+
+          let error = process.StandardError.ReadToEnd()
+  --------------------^^^^^^^
+
+stdin(21,21): warning FS0046: The identifier 'process' is reserved for future use by F#
+
+
+          process.WaitForExit()
+  --------^^^^^^^
+
+stdin(22,9): warning FS0046: The identifier 'process' is reserved for future use by F#
+
+
+          if process.ExitCode = 0 then
+  -----------^^^^^^^
+
+stdin(24,12): warning FS0046: The identifier 'process' is reserved for future use by F#
+
+
+26/07/2024 3:25:58 PM: Script Output:
+
+Microsoft (R) F# Interactive version 12.8.301.0 for F# 8.0
+Copyright (c) Microsoft Corporation. All Rights Reserved.
+
+For help type #help;;
+
+> Command Output:
+C:\Users\61423\Desktop\F# projects\C2\agent
+
+val runCommand: command: string -> string option
+val command: string = "cd"
+val it: unit = ()
+
+
+Script Errors:
+
+          use process = new Process()
+  ------------^^^^^^^
+
+stdin(16,13): warning FS0046: The identifier 'process' is reserved for future use by F#
+
+
+          process.StartInfo <- startInfo
+  --------^^^^^^^
+
+stdin(17,9): warning FS0046: The identifier 'process' is reserved for future use by F#
+
+
+          process.Start() |> ignore
+  --------^^^^^^^
+
+stdin(18,9): warning FS0046: The identifier 'process' is reserved for future use by F#
+
+
+          let output = process.StandardOutput.ReadToEnd()
+  ---------------------^^^^^^^
+
+stdin(20,22): warning FS0046: The identifier 'process' is reserved for future use by F#
+
+
+          let error = process.StandardError.ReadToEnd()
+  --------------------^^^^^^^
+
+stdin(21,21): warning FS0046: The identifier 'process' is reserved for future use by F#
+
+
+          process.WaitForExit()
+  --------^^^^^^^
+
+stdin(22,9): warning FS0046: The identifier 'process' is reserved for future use by F#
+
+
+          if process.ExitCode = 0 then
+  -----------^^^^^^^
+
+stdin(24,12): warning FS0046: The identifier 'process' is reserved for future use by F#
+
+
+26/07/2024 3:26:10 PM: Script Output:
+
+Microsoft (R) F# Interactive version 12.8.301.0 for F# 8.0
+Copyright (c) Microsoft Corporation. All Rights Reserved.
+
+For help type #help;;
+
+> Command Output:
+C:\Users\61423\Desktop\F# projects\C2\agent
+
+val runCommand: command: string -> string option
+val command: string = "cd"
+val it: unit = ()
+
+
+Script Errors:
+
+          use process = new Process()
+  ------------^^^^^^^
+
+stdin(16,13): warning FS0046: The identifier 'process' is reserved for future use by F#
+
+
+          process.StartInfo <- startInfo
+  --------^^^^^^^
+
+stdin(17,9): warning FS0046: The identifier 'process' is reserved for future use by F#
+
+
+          process.Start() |> ignore
+  --------^^^^^^^
+
+stdin(18,9): warning FS0046: The identifier 'process' is reserved for future use by F#
+
+
+          let output = process.StandardOutput.ReadToEnd()
+  ---------------------^^^^^^^
+
+stdin(20,22): warning FS0046: The identifier 'process' is reserved for future use by F#
+
+
+          let error = process.StandardError.ReadToEnd()
+  --------------------^^^^^^^
+
+stdin(21,21): warning FS0046: The identifier 'process' is reserved for future use by F#
+
+
+          process.WaitForExit()
+  --------^^^^^^^
+
+stdin(22,9): warning FS0046: The identifier 'process' is reserved for future use by F#
+
+
+          if process.ExitCode = 0 then
+  -----------^^^^^^^
+
+stdin(24,12): warning FS0046: The identifier 'process' is reserved for future use by F#
+
+
+26/07/2024 3:30:29 PM: Script Output:
+
+Microsoft (R) F# Interactive version 12.8.301.0 for F# 8.0
+Copyright (c) Microsoft Corporation. All Rights Reserved.
+
+For help type #help;;
+
+> Command Output:
+C:\Users\61423\Desktop\F# projects\C2\agent
+
+val runCommand: command: string -> string option
+val command: string = "cd"
+val it: unit = ()
+
+
+Script Errors:
+
+26/07/2024 3:30:41 PM: Script Output:
+
+Microsoft (R) F# Interactive version 12.8.301.0 for F# 8.0
+Copyright (c) Microsoft Corporation. All Rights Reserved.
+
+For help type #help;;
+
+> Command Output:
+C:\Users\61423\Desktop\F# projects\C2\agent
+
+val runCommand: command: string -> string option
+val command: string = "cd"
+val it: unit = ()
+
+
+Script Errors:
+
+26/07/2024 3:30:53 PM: Script Output:
+
+Microsoft (R) F# Interactive version 12.8.301.0 for F# 8.0
+Copyright (c) Microsoft Corporation. All Rights Reserved.
+
+For help type #help;;
+
+> Command Output:
+C:\Users\61423\Desktop\F# projects\C2\agent
+
+val runCommand: command: string -> string option
+val command: string = "cd"
+val it: unit = ()
+
+
+Script Errors:
+
