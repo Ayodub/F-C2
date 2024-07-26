@@ -51,8 +51,8 @@ let sendOutputToServer (url: string) (message: string) (sessionId: string) =
 let runScriptContent (scriptContent: string) (sessionId: string) =
     try
         let startInfo = ProcessStartInfo()
-        startInfo.FileName <- "dotnet"  // Use dotnet to run fsi
-        startInfo.Arguments <- "fsi"   // Arguments to run fsi
+        startInfo.FileName <- "dotnet"
+        startInfo.Arguments <- "fsi"
         startInfo.UseShellExecute <- false
         startInfo.RedirectStandardOutput <- true
         startInfo.RedirectStandardError <- true
@@ -61,14 +61,14 @@ let runScriptContent (scriptContent: string) (sessionId: string) =
 
         use proc = Process.Start(startInfo)
         use stdInput = proc.StandardInput
+        use stdOutput = proc.StandardOutput
+        use stdError = proc.StandardError
 
-        // Write the script content to the standard input of dotnet fsi
-        stdInput.AutoFlush <- true
-        stdInput.Write(scriptContent)
+        stdInput.WriteLine(scriptContent)
         stdInput.Close()
 
-        let output = proc.StandardOutput.ReadToEnd()
-        let errors = proc.StandardError.ReadToEnd()
+        let output = stdOutput.ReadToEnd()
+        let errors = stdError.ReadToEnd()
         proc.WaitForExit()
 
         printfn "Script Output:\n%s" output
@@ -89,16 +89,23 @@ let checkForNewScripts (sessionId: string) =
         while true do
             try
                 use client = new HttpClient()
-                let! response = client.GetStringAsync(sprintf "http://192.168.8.107:8000/clients/%s/currentScript" sessionId) |> Async.AwaitTask
-                if response <> "" then
-                    printfn "New script path received: %s" response
-                    match downloadScriptContent response with
+                let url = sprintf "http://192.168.8.107:8000/scripts/currentscript/%s/currentscript.txt" sessionId
+                let! scriptContentResponse = client.GetStringAsync(url) |> Async.AwaitTask
+                if not (String.IsNullOrWhiteSpace(scriptContentResponse)) then
+                    printfn "New script path received: %s" url
+                    match downloadScriptContent url with
                     | Some scriptContent -> runScriptContent scriptContent sessionId
                     | None -> printfn "Failed to download the script."
+                else
+                    printfn "No script set for client or script content empty."
             with
             | ex -> printfn "Error checking for new scripts: %s" ex.Message
             do! Async.Sleep(10000) // Wait for 10 seconds before checking again
     }
+
+
+
+
 
 // Function to execute the default script on the first check-in
 let executeDefaultScript (sessionId: string) =
