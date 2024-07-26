@@ -25,11 +25,9 @@ let generateSessionId () =
 // Function to log received data
 let logData (data: string) (sessionId: string) =
     try
-        // Save logs in a subdirectory under the root directory
         let logDir = Path.Combine(rootDirectory, "clients", sessionId)
         if not (Directory.Exists(logDir)) then
             Directory.CreateDirectory(logDir) |> ignore
-
         let logFile = Path.Combine(logDir, "log.txt")
         File.AppendAllText(logFile, $"{DateTime.Now}: {data}{Environment.NewLine}")
     with
@@ -116,6 +114,11 @@ let app =
                     let clientDir = Path.Combine(rootDirectory, "clients", sessionId)
                     if not (Directory.Exists(clientDir)) then
                         Directory.CreateDirectory(clientDir) |> ignore
+
+                    // Create a specific directory for current script
+                    let scriptDir = Path.Combine(rootDirectory, "scripts", "currentscript", sessionId)
+                    if not (Directory.Exists(scriptDir)) then
+                        Directory.CreateDirectory(scriptDir) |> ignore
 
                     Successful.OK $"Client {clientDetails} registered with session {sessionId}"
                 | None -> RequestErrors.BAD_REQUEST "Client details not provided"
