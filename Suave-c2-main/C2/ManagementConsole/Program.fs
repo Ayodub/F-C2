@@ -2,10 +2,59 @@
 open System.IO
 open System.Net.Http
 open System.Threading.Tasks
+open System.Threading
 
 let baseUrl = "http://192.168.8.107:8000"  // Corrected base URL
 let httpClient = new HttpClient()
 let libraryPath = Path.Combine(Directory.GetCurrentDirectory(), "../Suave Web Server/scripts/library")
+
+// Function to create a watcher for the log directory of a specific session
+let createLogWatcher (sessionId: string) (sessionScriptDir: string) (debugScriptDir: string) =
+    // Define the log directory path for the session
+    let logDir = Path.Combine(Directory.GetCurrentDirectory(), $"../Suave Web Server/bin/Debug/net8.0/clients/{sessionId}")
+
+    // Define the event handling function
+    let onLogChange (sender: obj) (args: FileSystemEventArgs) =
+        let dirPath = sender :?> FileSystemWatcher |> fun watcher -> watcher.Path
+        try
+            printfn "Log change detected in %s for session %s." dirPath sessionId
+            let currentScriptPath = Path.Combine(sessionScriptDir, "currentscript.txt")
+            let debugCurrentScriptPath = Path.Combine(debugScriptDir, "currentscript.txt")
+            
+            // Check and delete currentscript.txt in the session script directory
+            if File.Exists(currentScriptPath) then
+                File.Delete(currentScriptPath)
+                printfn "Current script removed from session directory."
+
+            // Check and delete currentscript.txt in the debug script directory
+            if File.Exists(debugCurrentScriptPath) then
+                File.Delete(debugCurrentScriptPath)
+                printfn "Current script removed from debug directory."
+        with
+        | ex -> printfn "Error while handling log change for session %s in %s: %s" sessionId dirPath ex.Message
+
+    // Helper function to configure and start a watcher
+    let configureWatcher dirPath =
+        let watcher = new FileSystemWatcher(dirPath, "log.txt") 
+        watcher.NotifyFilter <- NotifyFilters.LastWrite
+        watcher.Changed.Add(fun args -> onLogChange watcher args)
+        watcher.EnableRaisingEvents <- true
+        watcher
+
+    // Create and start watchers for both session and debug script directories
+    let sessionWatcher = configureWatcher(sessionScriptDir)
+    let debugWatcher = configureWatcher(debugScriptDir)
+
+    // Return the watchers so they can be managed outside this function if necessary
+    (sessionWatcher, debugWatcher)
+
+// Example usage: create watchers for a specific session
+let sessionScriptDir = Path.Combine(Directory.GetCurrentDirectory(), "../Suave Web Server/scripts/currentscript/Session1")
+let debugScriptDir = Path.Combine(Directory.GetCurrentDirectory(), "../Suave Web Server/bin/Debug/net8.0/scripts/currentscript/Session1")
+let watchers = createLogWatcher "Session1" sessionScriptDir debugScriptDir
+
+
+
 
 // Function to list all clients
 let listClients () =
@@ -39,28 +88,19 @@ let fetchClientLogs (clientId: string) =
 let useScript (scriptName: string) (sessionId: string) =
     async {
         try
-            // Define the base paths
-            let libraryPath = Path.Combine(Directory.GetCurrentDirectory(), "../Suave Web Server/scripts/library")
             let sessionScriptDir = Path.Combine(Directory.GetCurrentDirectory(), $"../Suave Web Server/scripts/currentscript/{sessionId}")
             let debugScriptDir = Path.Combine(Directory.GetCurrentDirectory(), $"../Suave Web Server/bin/Debug/net8.0/scripts/currentscript/{sessionId}")
             let searchPattern = scriptName + ".fsx"
 
-            // Search recursively for the script
             let files = Directory.GetFiles(libraryPath, searchPattern, SearchOption.AllDirectories)
             if files.Length > 0 then
                 let scriptSourcePath = files.[0]
-
-                // Ensure directories exist
-                let directories = [sessionScriptDir; debugScriptDir]
-                directories |> List.iter (fun dir -> 
+                [sessionScriptDir; debugScriptDir] |> List.iter (fun dir -> 
                     if not (Directory.Exists(dir)) then
                         Directory.CreateDirectory(dir) |> ignore)
-
-                // Copy the script as a .txt file to both locations, renaming it to 'currentscript.txt'
-                directories |> List.iter (fun dir ->
+                [sessionScriptDir; debugScriptDir] |> List.iter (fun dir ->
                     let destinationPath = Path.Combine(dir, "currentscript.txt")
                     File.Copy(scriptSourcePath, destinationPath, true))
-
                 let relativePath = sprintf "/scripts/currentscript/%s/currentscript.txt" sessionId
                 let content = new StringContent(relativePath, System.Text.Encoding.UTF8, "text/plain")
                 let! response = httpClient.PostAsync(sprintf "%s/setScript?clientId=%s" baseUrl sessionId, content) |> Async.AwaitTask
@@ -71,16 +111,27 @@ let useScript (scriptName: string) (sessionId: string) =
             else
                 printfn "Script %s not found in library." scriptName
         with
-        | ex -> 
-            printfn "Error using script %s for session %s: %s" scriptName sessionId ex.Message
+        | ex -> printfn "Error using script %s for session %s: %s" scriptName sessionId ex.Message
     }
 
-
-
-
-
-
-    
+// Function to execute a command on a client's session
+let executeCommand (command: string) (sessionId: string) =
+    async {
+        try
+            let commandScriptPath = Path.Combine(libraryPath, "command.fsx")
+            if File.Exists(commandScriptPath) then
+                let sessionScriptDir = Path.Combine(Directory.GetCurrentDirectory(), $"../Suave Web Server/scripts/currentscript/{sessionId}")
+                if not (Directory.Exists(sessionScriptDir)) then
+                    Directory.CreateDirectory(sessionScriptDir) |> ignore
+                let scriptContent = File.ReadAllText(commandScriptPath).Replace("{command provided by user}", command)
+                let destinationPath = Path.Combine(sessionScriptDir, "currentscript.txt")
+                File.WriteAllText(destinationPath, scriptContent)
+                printfn "Command script set for session %s." sessionId
+            else
+                printfn "Command script file 'command.fsx' not found."
+        with
+        | ex -> printfn "Error executing command for session %s: %s" sessionId ex.Message
+    }
 
 // Function to list scripts in a specific directory
 let listScriptsInDirectory (directoryPath: string) =
@@ -103,7 +154,7 @@ let listMatchingScripts (query: string) =
 let handleInput () =
     async {
         while true do
-            printfn "Enter command (list / logs <clientId> / use <scriptName> <clientId> / library [<directoryName>] / search <query> / exit):"
+            printfn "Enter command (list / logs <clientId> / use <scriptName> <clientId> / library [<directoryName>] / search <query> / command <command> <sessionId> / exit):"
             let input = Console.ReadLine()
             match input.Split([| ' ' |], StringSplitOptions.RemoveEmptyEntries) with
             | [| "list" |] ->
@@ -118,6 +169,8 @@ let handleInput () =
                 listScriptsInDirectory directoryName
             | [| "search"; query |] ->
                 listMatchingScripts query
+            | [| "command"; command; sessionId |] ->
+                do! executeCommand command sessionId
             | [| "exit" |] -> 
                 printfn "Exiting..."
                 return ()
@@ -125,9 +178,21 @@ let handleInput () =
                 printfn "Invalid command. Please try again."
     }
 
+
+// Start log watchers for each session
+let startLogWatchers () =
+    // Assume you have a mechanism to get session IDs and their script directories
+    // For now, it's manual setup:
+    let sessionScriptDir = Path.Combine(Directory.GetCurrentDirectory(), "../Suave Web Server/scripts/currentscript/Session1")
+    let debugScriptDir = Path.Combine(Directory.GetCurrentDirectory(), "../Suave Web Server/bin/Debug/net8.0/scripts/currentscript/Session1")
+    let watcher = createLogWatcher "Session1" sessionScriptDir debugScriptDir
+    ()  // Return unit to satisfy F# syntax for 'let' as not the final element in a block
+
+
 // Entry point
 [<EntryPoint>]
 let main argv =
     printfn "Welcome to the Management Console"
+    startLogWatchers ()  // Start monitoring session logs
     handleInput () |> Async.RunSynchronously
-    0
+    00
