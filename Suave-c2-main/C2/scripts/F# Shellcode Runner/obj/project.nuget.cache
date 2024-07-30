@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "3ox9/hRg4x0=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\61423\\Desktop\\F# projects\\Meterpreter-Reverse-Shell\\Meterpreter-Reverse-Shell.fsproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\61423\\.nuget\\packages\\fsharp.core\\8.0.301\\fsharp.core.8.0.301.nupkg.sha512"
+  ],
+  "logs": []
+}
