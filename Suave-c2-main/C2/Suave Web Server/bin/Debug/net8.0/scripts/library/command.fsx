@@ -13,15 +13,15 @@ let runCommand (command: string) =
             CreateNoWindow = true
         )
         
-        use proc = new Process()  // Renamed from 'process' to 'proc'
-        proc.StartInfo <- startInfo
-        proc.Start() |> ignore
+        use process = new Process()
+        process.StartInfo <- startInfo
+        process.Start() |> ignore
 
-        let output = proc.StandardOutput.ReadToEnd()
-        let error = proc.StandardError.ReadToEnd()
-        proc.WaitForExit()
+        let output = process.StandardOutput.ReadToEnd()
+        let error = process.StandardError.ReadToEnd()
+        process.WaitForExit()
 
-        if proc.ExitCode = 0 then
+        if process.ExitCode = 0 then
             Some output
         else
             Some (sprintf "Error: %s" error)
@@ -29,7 +29,7 @@ let runCommand (command: string) =
     | ex -> Some (sprintf "Exception: %s" ex.Message)
 
 // Command to run
-let command = "whoami"
+let command = "{command provided by user}"
 
 // Run the command and print the result
 match runCommand command with
