@@ -114,24 +114,33 @@ let useScript (scriptName: string) (sessionId: string) =
         | ex -> printfn "Error using script %s for session %s: %s" scriptName sessionId ex.Message
     }
 
-// Function to execute a command on a client's session
 let executeCommand (command: string) (sessionId: string) =
     async {
         try
             let commandScriptPath = Path.Combine(libraryPath, "command.fsx")
             if File.Exists(commandScriptPath) then
                 let sessionScriptDir = Path.Combine(Directory.GetCurrentDirectory(), $"../Suave Web Server/scripts/currentscript/{sessionId}")
-                if not (Directory.Exists(sessionScriptDir)) then
-                    Directory.CreateDirectory(sessionScriptDir) |> ignore
+                let debugScriptDir = Path.Combine(Directory.GetCurrentDirectory(), $"../Suave Web Server/bin/Debug/net8.0/scripts/currentscript/{sessionId}")
+                
+                [sessionScriptDir; debugScriptDir] |> List.iter (fun dir -> 
+                    if not (Directory.Exists(dir)) then
+                        Directory.CreateDirectory(dir) |> ignore
+                )
+
                 let scriptContent = File.ReadAllText(commandScriptPath).Replace("{command provided by user}", command)
-                let destinationPath = Path.Combine(sessionScriptDir, "currentscript.txt")
-                File.WriteAllText(destinationPath, scriptContent)
-                printfn "Command script set for session %s." sessionId
+                
+                [sessionScriptDir; debugScriptDir] |> List.iter (fun dir ->
+                    let destinationPath = Path.Combine(dir, "currentscript.txt")
+                    File.WriteAllText(destinationPath, scriptContent)
+                )
+
+                printfn "Command script set as 'currentscript.txt' for session %s in all locations." sessionId
             else
                 printfn "Command script file 'command.fsx' not found."
         with
         | ex -> printfn "Error executing command for session %s: %s" sessionId ex.Message
     }
+
 
 // Function to list scripts in a specific directory
 let listScriptsInDirectory (directoryPath: string) =
@@ -154,7 +163,7 @@ let listMatchingScripts (query: string) =
 let handleInput () =
     async {
         while true do
-            printfn "Enter command (list / logs <clientId> / use <scriptName> <clientId> / library [<directoryName>] / search <query> / command <command> <sessionId> / exit):"
+            printfn "Enter command (list / logs <Session ID> / use <scriptName> <Session ID> / library [<directoryName>] / search <query> / command <command> <Session Id> / exit):"
             let input = Console.ReadLine()
             match input.Split([| ' ' |], StringSplitOptions.RemoveEmptyEntries) with
             | [| "list" |] ->
