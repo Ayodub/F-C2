@@ -1,35 +1,46 @@
-#r "System.DirectoryServices.dll"
-#r "System.DirectoryServices.AccountManagement.dll"
+// currently the script is acting as a wrapper for powershell rather than calling windows APIs from F#. This is because of some dependency considerations which we may resolve later.
 
+open System.Diagnostics
 open System
-open System.DirectoryServices
-open System.DirectoryServices.ActiveDirectory
 
-let getCurrentDomainName () =
-    let domain = Domain.GetCurrentDomain()
-    let domainName = domain.Name
-    domainName
+// Function to run PowerShell commands via cmd.exe and return its output
+let runPowerShellViaCmd (psCommand: string) =
+    try
+        let command = sprintf "/c powershell -Command \"%s\"" psCommand
+        let startInfo = ProcessStartInfo(
+            FileName = "cmd.exe",
+            Arguments = command,
+            RedirectStandardOutput = true,
+            RedirectStandardError = true,
+            UseShellExecute = false,
+            CreateNoWindow = true
+        )
+        use cmdProcess = new Process()
+        cmdProcess.StartInfo <- startInfo
+        cmdProcess.Start() |> ignore
+        cmdProcess.WaitForExit()
 
-let KerberoastableUsers (domainName: string) =
-    let entry = new DirectoryEntry(sprintf "LDAP://%s" domainName)
-    let searcher = new DirectorySearcher(entry)
-    searcher.Filter <- "(&(objectCategory=person)(objectClass=user)(servicePrincipalName=*))"
-    searcher.PropertiesToLoad.Add("name") |> ignore
-    searcher.PropertiesToLoad.Add("servicePrincipalName") |> ignore
-    
-    searcher.FindAll()
-    |> Seq.cast<SearchResult>
-    |> Seq.map (fun result -> 
-        let userName = result.Properties.["name"].[0].ToString()
-        let spn = result.Properties.["servicePrincipalName"]
-        userName, spn
-    )
-    |> Seq.toList
+        let output = cmdProcess.StandardOutput.ReadToEnd()
+        let error = cmdProcess.StandardError.ReadToEnd()
 
-let domainName = getCurrentDomainName()
-let UsersList = KerberoastableUsers(domainName)
-UsersList 
-|> List.iter (fun (userName, spn) -> 
-    printfn "User: %s" userName
-    printfn "SPNs: %A" spn
-)
+        if cmdProcess.ExitCode = 0 then Some output
+        else Some (sprintf "Error: %s" error)
+    with
+    | ex -> Some (sprintf "Exception: %s" ex.Message)
+
+// PowerShell command to get Kerberoastable users from Active Directory
+let getKerberoastableUsersViaPowerShell () =
+    """
+    Get-ADUser -Filter {ServicePrincipalName -like '*'} -Properties ServicePrincipalName | 
+    Select-Object Name, ServicePrincipalName | 
+    Format-Table -AutoSize | Out-String
+    """
+
+// Run the PowerShell command and print the output
+match runPowerShellViaCmd (getKerberoastableUsersViaPowerShell ()) with
+| Some results -> 
+    printfn "Kerberoastable users:\n%s" results
+    results.Split([|'\n'; '\r'|], StringSplitOptions.RemoveEmptyEntries)
+    |> Array.iter (fun line -> printfn "%s" line)
+| None -> 
+    printfn "Failed to retrieve Kerberoastable users."

@@ -1,38 +1,45 @@
-#r "System.DirectoryServices.dll"
-#r "System.DirectoryServices.AccountManagement.dll"
+// currently the script is acting as a wrapper for powershell rather than calling windows APIs from F#. This is because of some dependency considerations which we may resolve later.
 
+open System.Diagnostics
 open System
-open System.DirectoryServices
-open System.DirectoryServices.AccountManagement
-open System.DirectoryServices.ActiveDirectory
-open System.Security.Principal
 
-let getCurrentDomainName () =
-    let domain = Domain.GetCurrentDomain()
-    let domainName = domain.Name
-    domainName
+// Function to run PowerShell commands via cmd.exe and return its output
+let runPowerShellViaCmd (psCommand: string) =
+    try
+        let command = sprintf "/c powershell -Command \"%s\"" psCommand
+        let startInfo = ProcessStartInfo(
+            FileName = "cmd.exe",
+            Arguments = command,
+            RedirectStandardOutput = true,
+            RedirectStandardError = true,
+            UseShellExecute = false,
+            CreateNoWindow = true
+        )
+        use cmdProcess = new Process()
+        cmdProcess.StartInfo <- startInfo
+        cmdProcess.Start() |> ignore
+        cmdProcess.WaitForExit()
 
-let getCurrentUserName () =
-    let currentUser = WindowsIdentity.GetCurrent().Name
-    currentUser
+        let output = cmdProcess.StandardOutput.ReadToEnd()
+        let error = cmdProcess.StandardError.ReadToEnd()
 
-let getGroupsCurrentUserIsAdminOf (domainName: string, currentUserName: string) =
-    let entry = new DirectoryEntry(sprintf "LDAP://%s" domainName)
-    let searcher = new DirectorySearcher(entry)
-    searcher.Filter <- "(objectClass=group)"
-    searcher.PropertiesToLoad.Add("name") |> ignore
-    searcher.PropertiesToLoad.Add("member") |> ignore
+        if cmdProcess.ExitCode = 0 then Some output
+        else Some (sprintf "Error: %s" error)
+    with
+    | ex -> Some (sprintf "Exception: %s" ex.Message)
 
-    searcher.FindAll()
-    |> Seq.cast<SearchResult>
-    |> Seq.filter (fun result ->
-        result.Properties.["member"]
-        |> Seq.cast<string>
-        |> Seq.exists (fun member -> member.Contains(currentUserName)))
-    |> Seq.map (fun result -> result.Properties.["name"].[0].ToString())
-    |> Seq.toList
+// PowerShell command to get groups the current user is an admin of
+let psGetGroupsCurrentUserIsAdminOf =
+    """
+    $user = [System.Security.Principal.WindowsIdentity]::GetCurrent().Name
+    Get-ADGroup -Filter * | Where-Object { ($_ | Get-ADGroupMember).SamAccountName -contains $user } | Select-Object Name | Format-Table -AutoSize | Out-String
+    """
 
-let domainName = getCurrentDomainName()
-let currentUserName = getCurrentUserName()
-let groups = getGroupsCurrentUserIsAdminOf(domainName, currentUserName)
-groups |> List.iter (printfn "%s")
+// Run the PowerShell command and print the output
+match runPowerShellViaCmd psGetGroupsCurrentUserIsAdminOf with
+| Some results -> 
+    printfn "Groups the current user is admin of:\n%s" results
+    results.Split([|'\n'; '\r'|], StringSplitOptions.RemoveEmptyEntries)
+    |> Array.iter (fun line -> printfn "%s" line)
+| None -> 
+    printfn "Failed to retrieve groups."

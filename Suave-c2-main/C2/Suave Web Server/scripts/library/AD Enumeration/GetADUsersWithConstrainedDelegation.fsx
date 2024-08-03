@@ -1,38 +1,46 @@
-#r "System.DirectoryServices.dll"
-#r "System.DirectoryServices.AccountManagement.dll"
+// currently the script is acting as a wrapper for powershell rather than calling windows APIs from F#. This is because of some dependency considerations which we may resolve later.
 
+open System.Diagnostics
 open System
-open System.DirectoryServices
-open System.DirectoryServices.ActiveDirectory
-open System.DirectoryServices.AccountManagement
 
-let getCurrentDomainName () =
-    let domain = Domain.GetCurrentDomain()
-    domain.Name
+// Function to run PowerShell commands via cmd.exe and return its output
+let runPowerShellViaCmd (psCommand: string) =
+    try
+        let command = sprintf "/c powershell -Command \"%s\"" psCommand
+        let startInfo = ProcessStartInfo(
+            FileName = "cmd.exe",
+            Arguments = command,
+            RedirectStandardOutput = true,
+            RedirectStandardError = true,
+            UseShellExecute = false,
+            CreateNoWindow = true
+        )
+        use cmdProcess = new Process()
+        cmdProcess.StartInfo <- startInfo
+        cmdProcess.Start() |> ignore
+        cmdProcess.WaitForExit()
 
-let getDelegationPermissions (domainName: string) =
-    let entry = new DirectoryEntry(sprintf "LDAP://%s" domainName)
-    let searcher = new DirectorySearcher(entry)
-    searcher.Filter <- "(&(objectCategory=serviceConnectionPoint)(msDS-AllowedToActOnBehalfOfOtherIdentity=*))"
-    searcher.PropertiesToLoad.Add("msDS-AllowedToActOnBehalfOfOtherIdentity") |> ignore
-    searcher.PropertiesToLoad.Add("distinguishedName") |> ignore
+        let output = cmdProcess.StandardOutput.ReadToEnd()
+        let error = cmdProcess.StandardError.ReadToEnd()
 
-    searcher.FindAll()
-    |> Seq.cast<SearchResult>
-    |> Seq.map (fun result -> 
-        let allowedIdentities = result.Properties.["msDS-AllowedToActOnBehalfOfOtherIdentity"]
-        let distinguishedName = result.Properties.["distinguishedName"].[0].ToString()
-        distinguishedName, allowedIdentities
-    )
-    |> Seq.toList
+        if cmdProcess.ExitCode = 0 then Some output
+        else Some (sprintf "Error: %s" error)
+    with
+    | ex -> Some (sprintf "Exception: %s" ex.Message)
 
-let domainName = getCurrentDomainName()
-let delegationPermissions = getDelegationPermissions(domainName)
-delegationPermissions |> List.iter (fun (distinguishedName, allowedIdentities) ->
-    printfn "Distinguished Name: %s" distinguishedName
-    allowedIdentities
-    |> Seq.cast<obj>
-    |> Seq.iter (fun identity ->
-        printfn "  Allowed Identity: %s" (identity.ToString())
-    )
-)
+// PowerShell command to get delegation permissions from Active Directory
+let getDelegationPermissionsViaPowerShell () =
+    """
+    Get-ADObject -Filter 'objectCategory -eq "serviceConnectionPoint" -and msDS-AllowedToActOnBehalfOfOtherIdentity -ne "$null"' -Properties msDS-AllowedToActOnBehalfOfOtherIdentity, distinguishedName | 
+    Select-Object distinguishedName, msDS-AllowedToActOnBehalfOfOtherIdentity | 
+    Format-Table -AutoSize | Out-String
+    """
+
+// Run the PowerShell command and print the output
+match runPowerShellViaCmd (getDelegationPermissionsViaPowerShell ()) with
+| Some results -> 
+    printfn "Delegation Permissions:\n%s" results
+    results.Split([|'\n'; '\r'|], StringSplitOptions.RemoveEmptyEntries)
+    |> Array.iter (fun line -> printfn "%s" line)
+| None -> 
+    printfn "Failed to retrieve delegation permissions."

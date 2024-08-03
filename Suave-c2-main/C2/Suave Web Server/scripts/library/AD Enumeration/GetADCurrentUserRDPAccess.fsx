@@ -1,73 +1,59 @@
-#r "System.DirectoryServices.dll"
-#r "System.DirectoryServices.AccountManagement.dll"
-#r "System.Management.dll"
+// currently the script is acting as a wrapper for powershell rather than calling windows APIs from F#. This is because of some dependency considerations which we may resolve later.
 
 open System
-open System.DirectoryServices
-open System.DirectoryServices.AccountManagement
-open System.Management
+open System.Diagnostics
 
-// Function to get all computers in the domain
-let getAllComputers () =
-    let domain = Domain.GetCurrentDomain()
-    let directoryEntry = new DirectoryEntry(sprintf "LDAP://%s" domain.Name)
-    let searcher = new DirectorySearcher(directoryEntry)
-    searcher.Filter <- "(objectClass=computer)"
-    searcher.PropertiesToLoad.Add("name") |> ignore
-
-    searcher.FindAll()
-    |> Seq.cast<SearchResult>
-    |> Seq.map (fun result -> result.Properties.["name"].[0].ToString())
-    |> Seq.toList
-
-// Function to check Remote Desktop status on a computer
-let checkRemoteDesktopOnComputer (computerName: string) =
-    let scope = new ManagementScope(sprintf @"\\%s\root\cimv2" computerName, ConnectionOptions())
+// Function to run PowerShell commands via cmd.exe and return its output
+let runPowerShellViaCmd (psCommand: string) =
     try
-        scope.Connect()
-        let query = new ObjectQuery("SELECT * FROM Win32_TerminalServiceSetting")
-        let searcher = new ManagementObjectSearcher(scope, query)
-        let result = searcher.Get()
-        
-        let isEnabled = 
-            result
-            |> Seq.cast<ManagementObject>
-            |> Seq.exists (fun obj -> obj["AllowTSConnections"] = 1)
-        
-        isEnabled
+        let command = sprintf "/c powershell -Command \"%s\"" psCommand
+        let startInfo = ProcessStartInfo(
+            FileName = "cmd.exe",
+            Arguments = command,
+            RedirectStandardOutput = true,
+            RedirectStandardError = true,
+            UseShellExecute = false,
+            CreateNoWindow = true
+        )
+        use cmdProcess = new Process()
+        cmdProcess.StartInfo <- startInfo
+        cmdProcess.Start() |> ignore
+        cmdProcess.WaitForExit()
+
+        let output = cmdProcess.StandardOutput.ReadToEnd()
+        let error = cmdProcess.StandardError.ReadToEnd()
+
+        if cmdProcess.ExitCode = 0 then Some output
+        else Some (sprintf "Error: %s" error)
     with
-    | _ -> false
+    | ex -> Some (sprintf "Exception: %s" ex.Message)
 
-// Function to check if the current user is a member of 'Remote Desktop Users' group on a computer
-let checkUserAccessOnComputer (computerName: string) =
-    let context = new PrincipalContext(ContextType.Domain)
-    let group = GroupPrincipal.FindByIdentity(context, "Remote Desktop Users")
-    
-    let user = UserPrincipal.Current
-    if group = null then
-        false
-    else
-        group.Members
-        |> Seq.exists (fun principal -> principal.Sid.ToString() = user.Sid.ToString())
+// PowerShell command to get all computers in the domain and check Remote Desktop status
+let psGetComputersAndRDStatus =
+    """
+    $computers = Get-ADComputer -Filter * -Property * | Select-Object Name, Enabled
+    foreach ($computer in $computers) {
+        $RDS = Get-WmiObject -Class Win32_TerminalServiceSetting -ComputerName $computer.Name -Namespace root\CIMV2\TerminalServices
+        $userAccess = Get-ADGroupMember 'Remote Desktop Users' | Where-Object {$_.SamAccountName -eq $env:USERNAME}
+        [pscustomobject]@{
+            ComputerName = $computer.Name
+            RemoteDesktopEnabled = $RDS.AllowTSConnections
+            CurrentUserHasAccess = $userAccess -ne $null
+        }
+    }
+    """
 
-// Check Remote Desktop access for all computers
-let checkRemoteDesktopAccessForAllComputers () =
-    let computers = getAllComputers()
-    computers
-    |> List.map (fun computerName ->
-        let remoteDesktopEnabled = checkRemoteDesktopOnComputer computerName
-        let userHasAccess = if remoteDesktopEnabled then checkUserAccessOnComputer computerName else false
-        
-        (computerName, remoteDesktopEnabled, userHasAccess)
-    )
+// Run the PowerShell command and process the output
+let rdStatusResults =
+    match runPowerShellViaCmd psGetComputersAndRDStatus with
+    | Some results -> 
+        printfn "Results:\n%s" results
+        results.Split([|'\n'; '\r'|], StringSplitOptions.RemoveEmptyEntries)
+    | None -> 
+        printfn "Failed to retrieve information."
+        Array.empty
 
-let results = checkRemoteDesktopAccessForAllComputers()
-results |> List.iter (fun (computerName, isEnabled, userHasAccess) ->
-    if isEnabled then
-        if userHasAccess then
-            printfn "Computer: %s - Remote Desktop is enabled and current user has access" computerName
-        else
-            printfn "Computer: %s - Remote Desktop is enabled but current user does not have access" computerName
-    else
-        printfn "Computer: %s - Remote Desktop is disabled" computerName
+// Print the formatted results
+rdStatusResults |> Array.iter (fun line ->
+    printfn "%s" line
 )

@@ -29,7 +29,7 @@ let runCommand (command: string) =
     | ex -> Some (sprintf "Exception: %s" ex.Message)
 
 // Command to run
-let command = "cd"
+let command = "whoami"
 
 // Run the command and print the result
 match runCommand command with

@@ -55,7 +55,6 @@ let logData (data: string) (sessionId: string) =
     with
     | ex -> printfn $"Error logging data or deleting script for session {sessionId}: {ex.Message}"
 
-
 // Clear logs on startup
 let clearLogs () =
     let logDir = Path.Combine(rootDirectory, "clients")
@@ -64,6 +63,26 @@ let clearLogs () =
         |> Seq.iter (fun dir ->
             let logFile = Path.Combine(dir, "log.txt")
             if File.Exists(logFile) then File.Delete(logFile))
+
+// Function to register a client and assign a session ID
+let registerClient (clientDetails: string) =
+    let clientId = clientDetails.Split('_').[0]
+    let sessionId = generateSessionId()
+    
+    // Check if the client is already registered
+    if clients.ContainsKey(clientId) then
+        printfn "Client %s is already registered. Assigning new session ID: %s" clientDetails sessionId
+    else
+        clients.TryAdd(clientId, clientDetails) |> ignore
+
+    clientSessions.TryAdd(sessionId, clientId) |> ignore
+
+    // Create client directory
+    let clientDir = Path.Combine(rootDirectory, "clients", sessionId)
+    if not (Directory.Exists(clientDir)) then
+        Directory.CreateDirectory(clientDir) |> ignore
+
+    sessionId  // Return the new session ID
 
 // Define the web server configuration
 let config =
@@ -148,7 +167,9 @@ let app =
                     let newScriptPath = System.Text.Encoding.UTF8.GetString(r.rawForm).Trim()
                     match clientSessions.TryGetValue(sessionId) with
                     | true, clientId ->
-                        clients.AddOrUpdate(clientId, newScriptPath, fun _ _ -> newScriptPath) |> ignore
+                        // Ensure the client's details are not overwritten by the script path
+                        let updatedDetails = clients.[clientId] // Maintain existing client details
+                        clients.AddOrUpdate(clientId, updatedDetails, fun _ _ -> updatedDetails) |> ignore
                         Successful.OK $"Script path set to {newScriptPath} for client {clientId}"
                     | false, _ -> RequestErrors.NOT_FOUND "Session not found"
                 | Choice2Of2 _ -> RequestErrors.BAD_REQUEST "Client ID not provided"
@@ -156,17 +177,8 @@ let app =
             path "/registerClient" >=> request (fun r ->
                 match r.rawForm |> System.Text.Encoding.UTF8.GetString |> Option.ofObj with
                 | Some clientDetails ->
-                    let clientId = clientDetails.Split('_').[0]
-                    let sessionId = generateSessionId()
-                    clients.TryAdd(clientId, clientDetails) |> ignore
-                    clientSessions.TryAdd(sessionId, clientId) |> ignore
-
-                    // Create client directory
-                    let clientDir = Path.Combine(rootDirectory, "clients", sessionId)
-                    if not (Directory.Exists(clientDir)) then
-                        Directory.CreateDirectory(clientDir) |> ignore
-
-                    Successful.OK $"Client {clientDetails} registered with session {sessionId}"
+                    let sessionId = registerClient(clientDetails)
+                    Successful.OK sessionId
                 | None -> RequestErrors.BAD_REQUEST "Client details not provided"
             )
         ]

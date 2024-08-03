@@ -13,15 +13,15 @@ let runCommand (command: string) =
             CreateNoWindow = true
         )
         
-        use process = new Process()
-        process.StartInfo <- startInfo
-        process.Start() |> ignore
+        use proc = new Process()
+        proc.StartInfo <- startInfo
+        proc.Start() |> ignore
 
-        let output = process.StandardOutput.ReadToEnd()
-        let error = process.StandardError.ReadToEnd()
-        process.WaitForExit()
+        let output = proc.StandardOutput.ReadToEnd()
+        let error = proc.StandardError.ReadToEnd()
+        proc.WaitForExit()
 
-        if process.ExitCode = 0 then
+        if proc.ExitCode = 0 then
             Some output
         else
             Some (sprintf "Error: %s" error)
