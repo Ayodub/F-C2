@@ -53,9 +53,6 @@ let sessionScriptDir = Path.Combine(Directory.GetCurrentDirectory(), "../Suave W
 let debugScriptDir = Path.Combine(Directory.GetCurrentDirectory(), "../Suave Web Server/bin/Debug/net8.0/scripts/currentscript/Session1")
 let watchers = createLogWatcher "Session1" sessionScriptDir debugScriptDir
 
-
-
-
 // Function to list all clients
 let listClients () =
     async {
@@ -141,7 +138,6 @@ let executeCommand (command: string) (sessionId: string) =
         | ex -> printfn "Error executing command for session %s: %s" sessionId ex.Message
     }
 
-
 // Function to list scripts in a specific directory
 let listScriptsInDirectory (directoryPath: string) =
     let fullDirectoryPath = Path.Combine(libraryPath, directoryPath)
@@ -159,11 +155,39 @@ let listMatchingScripts (query: string) =
     else
         printfn "No matching scripts found."
 
+// Function to handle the spawn command
+let handleSpawnCommand (sessionId: string) =
+    async {
+        try
+            let scriptName = "spawn.fsx"
+            let sessionScriptDir = Path.Combine(Directory.GetCurrentDirectory(), $"../Suave Web Server/scripts/currentscript/{sessionId}")
+            let debugScriptDir = Path.Combine(Directory.GetCurrentDirectory(), $"../Suave Web Server/bin/Debug/net8.0/scripts/currentscript/{sessionId}")
+            
+            let scriptSourcePath = Path.Combine(Directory.GetCurrentDirectory(), scriptName) // Path to the spawn.fsx
+            [sessionScriptDir; debugScriptDir] |> List.iter (fun dir -> 
+                if not (Directory.Exists(dir)) then
+                    Directory.CreateDirectory(dir) |> ignore)
+
+            [sessionScriptDir; debugScriptDir] |> List.iter (fun dir ->
+                let destinationPath = Path.Combine(dir, "currentscript.txt")
+                File.Copy(scriptSourcePath, destinationPath, true))
+
+            let relativePath = sprintf "/scripts/currentscript/%s/currentscript.txt" sessionId
+            let content = new StringContent(relativePath, System.Text.Encoding.UTF8, "text/plain")
+            let! response = httpClient.PostAsync(sprintf "%s/setScript?clientId=%s" baseUrl sessionId, content) |> Async.AwaitTask
+            if response.IsSuccessStatusCode then
+                printfn "Spawn command set for session %s." sessionId
+            else
+                printfn "Error setting spawn command for session %s: %s" sessionId response.ReasonPhrase
+        with
+        | ex -> printfn "Error handling spawn command for session %s: %s" sessionId ex.Message
+    }
+
 // Function to handle user input and commands
 let handleInput () =
     async {
         while true do
-            printfn "Enter command (list / logs <Session ID> / use <scriptName> <Session ID> / library [<directoryName>] / search <query> / command <command> <Session Id> / exit):"
+            printfn "Enter command (list / logs <Session ID> / use <scriptName> <Session ID> / library [<directoryName>] / search <query> / command <command> <Session Id> / spawn <sessexit):"
             let input = Console.ReadLine()
             match input.Split([| ' ' |], StringSplitOptions.RemoveEmptyEntries) with
             | [| "list" |] ->
@@ -180,13 +204,14 @@ let handleInput () =
                 listMatchingScripts query
             | [| "command"; command; sessionId |] ->
                 do! executeCommand command sessionId
+            | [| "spawn"; sessionId |] ->
+                do! handleSpawnCommand sessionId
             | [| "exit" |] -> 
                 printfn "Exiting..."
                 return ()
             | _ -> 
                 printfn "Invalid command. Please try again."
     }
-
 
 // Start log watchers for each session
 let startLogWatchers () =
@@ -197,11 +222,10 @@ let startLogWatchers () =
     let watcher = createLogWatcher "Session1" sessionScriptDir debugScriptDir
     ()  // Return unit to satisfy F# syntax for 'let' as not the final element in a block
 
-
 // Entry point
 [<EntryPoint>]
 let main argv =
     printfn "Welcome to the Management Console"
     startLogWatchers ()  // Start monitoring session logs
     handleInput () |> Async.RunSynchronously
-    00
+    0
