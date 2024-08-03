@@ -1,21 +1,4 @@
-30/07/2024 9:25:13 PM: Script Output:
-
-Microsoft (R) F# Interactive version 12.8.301.0 for F# 8.0
-Copyright (c) Microsoft Corporation. All Rights Reserved.
-
-For help type #help;;
-
-> Command Output:
-desktop-k85sjo9\61423
-
-val runCommand: command: string -> string option
-val command: string = "whoami"
-val it: unit = ()
-
-
-Script Errors:
-
-30/07/2024 9:25:45 PM: Script Output:
+3/08/2024 9:42:50 PM: Script Output:
 
 Microsoft (R) F# Interactive version 12.8.301.0 for F# 8.0
 Copyright (c) Microsoft Corporation. All Rights Reserved.
@@ -84,25 +67,880 @@ stdin(22,9): warning FS0046: The identifier 'process' is reserved for future use
 stdin(24,12): warning FS0046: The identifier 'process' is reserved for future use by F#
 
 
-30/07/2024 9:27:07 PM: Script Output:
+3/08/2024 9:42:51 PM: Script Output:
 
 Microsoft (R) F# Interactive version 12.8.301.0 for F# 8.0
 Copyright (c) Microsoft Corporation. All Rights Reserved.
 
 For help type #help;;
 
-> 
---> Referenced 'C:\Program Files\dotnet\shared\Microsoft.NETCore.App\8.0.7\System.ServiceProcess.dll' (file may be locked by F# Interactive process)
+> ARP Table:
 
+Interface: 192.168.73.128 --- 0x7
+  Internet Address      Physical Address      Type
+  192.168.73.2          00-50-56-f8-8d-4d     dynamic   
+  192.168.73.254        00-50-56-e2-9b-4d     dynamic   
+  192.168.73.255        ff-ff-ff-ff-ff-ff     static    
+  224.0.0.22            01-00-5e-00-00-16     static    
+  224.0.0.251           01-00-5e-00-00-fb     static    
+  224.0.0.252           01-00-5e-00-00-fc     static    
+  239.255.255.250       01-00-5e-7f-ff-fa     static    
+  255.255.255.255       ff-ff-ff-ff-ff-ff     static    
 
---> Referenced 'C:\Program Files\dotnet\shared\Microsoft.NETCore.App\8.0.7\Microsoft.Win32.Registry.dll' (file may be locked by F# Interactive process)
+val getArpTable: unit -> string
+val displayArpTable: unit -> unit
+val it: unit = ()
 
 
 Script Errors:
 
-  open System.ServiceProcess
-  ------------^^^^^^^^^^^^^^
+          use process = new Process()
+  ------------^^^^^^^
 
-stdin(5,13): error FS0039: The namespace 'ServiceProcess' is not defined.
+stdin(17,13): warning FS0046: The identifier 'process' is reserved for future use by F#
 
+
+          process.StartInfo <- startInfo
+  --------^^^^^^^
+
+stdin(18,9): warning FS0046: The identifier 'process' is reserved for future use by F#
+
+
+          process.Start() |> ignore
+  --------^^^^^^^
+
+stdin(19,9): warning FS0046: The identifier 'process' is reserved for future use by F#
+
+
+          let output = process.StandardOutput.ReadToEnd()
+  ---------------------^^^^^^^
+
+stdin(20,22): warning FS0046: The identifier 'process' is reserved for future use by F#
+
+
+          let error = process.StandardError.ReadToEnd()
+  --------------------^^^^^^^
+
+stdin(21,21): warning FS0046: The identifier 'process' is reserved for future use by F#
+
+
+          process.WaitForExit()
+  --------^^^^^^^
+
+stdin(22,9): warning FS0046: The identifier 'process' is reserved for future use by F#
+
+
+          if process.ExitCode = 0 then
+  -----------^^^^^^^
+
+stdin(24,12): warning FS0046: The identifier 'process' is reserved for future use by F#
+
+
+3/08/2024 9:42:53 PM: Script Output:
+
+Microsoft (R) F# Interactive version 12.8.301.0 for F# 8.0
+Copyright (c) Microsoft Corporation. All Rights Reserved.
+
+For help type #help;;
+
+> ARP Table:
+
+Interface: 192.168.73.128 --- 0x7
+  Internet Address      Physical Address      Type
+  192.168.73.2          00-50-56-f8-8d-4d     dynamic   
+  192.168.73.254        00-50-56-e2-9b-4d     dynamic   
+  192.168.73.255        ff-ff-ff-ff-ff-ff     static    
+  224.0.0.22            01-00-5e-00-00-16     static    
+  224.0.0.251           01-00-5e-00-00-fb     static    
+  224.0.0.252           01-00-5e-00-00-fc     static    
+  239.255.255.250       01-00-5e-7f-ff-fa     static    
+  255.255.255.255       ff-ff-ff-ff-ff-ff     static    
+
+val getArpTable: unit -> string
+val displayArpTable: unit -> unit
+val it: unit = ()
+
+
+Script Errors:
+
+          use process = new Process()
+  ------------^^^^^^^
+
+stdin(17,13): warning FS0046: The identifier 'process' is reserved for future use by F#
+
+
+          process.StartInfo <- startInfo
+  --------^^^^^^^
+
+stdin(18,9): warning FS0046: The identifier 'process' is reserved for future use by F#
+
+
+          process.Start() |> ignore
+  --------^^^^^^^
+
+stdin(19,9): warning FS0046: The identifier 'process' is reserved for future use by F#
+
+
+          let output = process.StandardOutput.ReadToEnd()
+  ---------------------^^^^^^^
+
+stdin(20,22): warning FS0046: The identifier 'process' is reserved for future use by F#
+
+
+          let error = process.StandardError.ReadToEnd()
+  --------------------^^^^^^^
+
+stdin(21,21): warning FS0046: The identifier 'process' is reserved for future use by F#
+
+
+          process.WaitForExit()
+  --------^^^^^^^
+
+stdin(22,9): warning FS0046: The identifier 'process' is reserved for future use by F#
+
+
+          if process.ExitCode = 0 then
+  -----------^^^^^^^
+
+stdin(24,12): warning FS0046: The identifier 'process' is reserved for future use by F#
+
+
+3/08/2024 9:42:53 PM: Script Output:
+
+Microsoft (R) F# Interactive version 12.8.301.0 for F# 8.0
+Copyright (c) Microsoft Corporation. All Rights Reserved.
+
+For help type #help;;
+
+> ARP Table:
+
+Interface: 192.168.73.128 --- 0x7
+  Internet Address      Physical Address      Type
+  192.168.73.2          00-50-56-f8-8d-4d     dynamic   
+  192.168.73.254        00-50-56-e2-9b-4d     dynamic   
+  192.168.73.255        ff-ff-ff-ff-ff-ff     static    
+  224.0.0.22            01-00-5e-00-00-16     static    
+  224.0.0.251           01-00-5e-00-00-fb     static    
+  224.0.0.252           01-00-5e-00-00-fc     static    
+  239.255.255.250       01-00-5e-7f-ff-fa     static    
+  255.255.255.255       ff-ff-ff-ff-ff-ff     static    
+
+val getArpTable: unit -> string
+val displayArpTable: unit -> unit
+val it: unit = ()
+
+
+Script Errors:
+
+          use process = new Process()
+  ------------^^^^^^^
+
+stdin(17,13): warning FS0046: The identifier 'process' is reserved for future use by F#
+
+
+          process.StartInfo <- startInfo
+  --------^^^^^^^
+
+stdin(18,9): warning FS0046: The identifier 'process' is reserved for future use by F#
+
+
+          process.Start() |> ignore
+  --------^^^^^^^
+
+stdin(19,9): warning FS0046: The identifier 'process' is reserved for future use by F#
+
+
+          let output = process.StandardOutput.ReadToEnd()
+  ---------------------^^^^^^^
+
+stdin(20,22): warning FS0046: The identifier 'process' is reserved for future use by F#
+
+
+          let error = process.StandardError.ReadToEnd()
+  --------------------^^^^^^^
+
+stdin(21,21): warning FS0046: The identifier 'process' is reserved for future use by F#
+
+
+          process.WaitForExit()
+  --------^^^^^^^
+
+stdin(22,9): warning FS0046: The identifier 'process' is reserved for future use by F#
+
+
+          if process.ExitCode = 0 then
+  -----------^^^^^^^
+
+stdin(24,12): warning FS0046: The identifier 'process' is reserved for future use by F#
+
+
+3/08/2024 9:42:54 PM: Script Output:
+
+Microsoft (R) F# Interactive version 12.8.301.0 for F# 8.0
+Copyright (c) Microsoft Corporation. All Rights Reserved.
+
+For help type #help;;
+
+> ARP Table:
+
+Interface: 192.168.73.128 --- 0x7
+  Internet Address      Physical Address      Type
+  192.168.73.2          00-50-56-f8-8d-4d     dynamic   
+  192.168.73.254        00-50-56-e2-9b-4d     dynamic   
+  192.168.73.255        ff-ff-ff-ff-ff-ff     static    
+  224.0.0.22            01-00-5e-00-00-16     static    
+  224.0.0.251           01-00-5e-00-00-fb     static    
+  224.0.0.252           01-00-5e-00-00-fc     static    
+  239.255.255.250       01-00-5e-7f-ff-fa     static    
+  255.255.255.255       ff-ff-ff-ff-ff-ff     static    
+
+val getArpTable: unit -> string
+val displayArpTable: unit -> unit
+val it: unit = ()
+
+
+Script Errors:
+
+          use process = new Process()
+  ------------^^^^^^^
+
+stdin(17,13): warning FS0046: The identifier 'process' is reserved for future use by F#
+
+
+          process.StartInfo <- startInfo
+  --------^^^^^^^
+
+stdin(18,9): warning FS0046: The identifier 'process' is reserved for future use by F#
+
+
+          process.Start() |> ignore
+  --------^^^^^^^
+
+stdin(19,9): warning FS0046: The identifier 'process' is reserved for future use by F#
+
+
+          let output = process.StandardOutput.ReadToEnd()
+  ---------------------^^^^^^^
+
+stdin(20,22): warning FS0046: The identifier 'process' is reserved for future use by F#
+
+
+          let error = process.StandardError.ReadToEnd()
+  --------------------^^^^^^^
+
+stdin(21,21): warning FS0046: The identifier 'process' is reserved for future use by F#
+
+
+          process.WaitForExit()
+  --------^^^^^^^
+
+stdin(22,9): warning FS0046: The identifier 'process' is reserved for future use by F#
+
+
+          if process.ExitCode = 0 then
+  -----------^^^^^^^
+
+stdin(24,12): warning FS0046: The identifier 'process' is reserved for future use by F#
+
+
+3/08/2024 9:42:54 PM: Script Output:
+
+Microsoft (R) F# Interactive version 12.8.301.0 for F# 8.0
+Copyright (c) Microsoft Corporation. All Rights Reserved.
+
+For help type #help;;
+
+> ARP Table:
+
+Interface: 192.168.73.128 --- 0x7
+  Internet Address      Physical Address      Type
+  192.168.73.2          00-50-56-f8-8d-4d     dynamic   
+  192.168.73.254        00-50-56-e2-9b-4d     dynamic   
+  192.168.73.255        ff-ff-ff-ff-ff-ff     static    
+  224.0.0.22            01-00-5e-00-00-16     static    
+  224.0.0.251           01-00-5e-00-00-fb     static    
+  224.0.0.252           01-00-5e-00-00-fc     static    
+  239.255.255.250       01-00-5e-7f-ff-fa     static    
+  255.255.255.255       ff-ff-ff-ff-ff-ff     static    
+
+val getArpTable: unit -> string
+val displayArpTable: unit -> unit
+val it: unit = ()
+
+
+Script Errors:
+
+          use process = new Process()
+  ------------^^^^^^^
+
+stdin(17,13): warning FS0046: The identifier 'process' is reserved for future use by F#
+
+
+          process.StartInfo <- startInfo
+  --------^^^^^^^
+
+stdin(18,9): warning FS0046: The identifier 'process' is reserved for future use by F#
+
+
+          process.Start() |> ignore
+  --------^^^^^^^
+
+stdin(19,9): warning FS0046: The identifier 'process' is reserved for future use by F#
+
+
+          let output = process.StandardOutput.ReadToEnd()
+  ---------------------^^^^^^^
+
+stdin(20,22): warning FS0046: The identifier 'process' is reserved for future use by F#
+
+
+          let error = process.StandardError.ReadToEnd()
+  --------------------^^^^^^^
+
+stdin(21,21): warning FS0046: The identifier 'process' is reserved for future use by F#
+
+
+          process.WaitForExit()
+  --------^^^^^^^
+
+stdin(22,9): warning FS0046: The identifier 'process' is reserved for future use by F#
+
+
+          if process.ExitCode = 0 then
+  -----------^^^^^^^
+
+stdin(24,12): warning FS0046: The identifier 'process' is reserved for future use by F#
+
+
+3/08/2024 9:42:55 PM: Script Output:
+
+Microsoft (R) F# Interactive version 12.8.301.0 for F# 8.0
+Copyright (c) Microsoft Corporation. All Rights Reserved.
+
+For help type #help;;
+
+> ARP Table:
+
+Interface: 192.168.73.128 --- 0x7
+  Internet Address      Physical Address      Type
+  192.168.73.2          00-50-56-f8-8d-4d     dynamic   
+  192.168.73.254        00-50-56-e2-9b-4d     dynamic   
+  192.168.73.255        ff-ff-ff-ff-ff-ff     static    
+  224.0.0.22            01-00-5e-00-00-16     static    
+  224.0.0.251           01-00-5e-00-00-fb     static    
+  224.0.0.252           01-00-5e-00-00-fc     static    
+  239.255.255.250       01-00-5e-7f-ff-fa     static    
+  255.255.255.255       ff-ff-ff-ff-ff-ff     static    
+
+val getArpTable: unit -> string
+val displayArpTable: unit -> unit
+val it: unit = ()
+
+
+Script Errors:
+
+          use process = new Process()
+  ------------^^^^^^^
+
+stdin(17,13): warning FS0046: The identifier 'process' is reserved for future use by F#
+
+
+          process.StartInfo <- startInfo
+  --------^^^^^^^
+
+stdin(18,9): warning FS0046: The identifier 'process' is reserved for future use by F#
+
+
+          process.Start() |> ignore
+  --------^^^^^^^
+
+stdin(19,9): warning FS0046: The identifier 'process' is reserved for future use by F#
+
+
+          let output = process.StandardOutput.ReadToEnd()
+  ---------------------^^^^^^^
+
+stdin(20,22): warning FS0046: The identifier 'process' is reserved for future use by F#
+
+
+          let error = process.StandardError.ReadToEnd()
+  --------------------^^^^^^^
+
+stdin(21,21): warning FS0046: The identifier 'process' is reserved for future use by F#
+
+
+          process.WaitForExit()
+  --------^^^^^^^
+
+stdin(22,9): warning FS0046: The identifier 'process' is reserved for future use by F#
+
+
+          if process.ExitCode = 0 then
+  -----------^^^^^^^
+
+stdin(24,12): warning FS0046: The identifier 'process' is reserved for future use by F#
+
+
+3/08/2024 9:42:55 PM: Script Output:
+
+Microsoft (R) F# Interactive version 12.8.301.0 for F# 8.0
+Copyright (c) Microsoft Corporation. All Rights Reserved.
+
+For help type #help;;
+
+> ARP Table:
+
+Interface: 192.168.73.128 --- 0x7
+  Internet Address      Physical Address      Type
+  192.168.73.2          00-50-56-f8-8d-4d     dynamic   
+  192.168.73.254        00-50-56-e2-9b-4d     dynamic   
+  192.168.73.255        ff-ff-ff-ff-ff-ff     static    
+  224.0.0.22            01-00-5e-00-00-16     static    
+  224.0.0.251           01-00-5e-00-00-fb     static    
+  224.0.0.252           01-00-5e-00-00-fc     static    
+  239.255.255.250       01-00-5e-7f-ff-fa     static    
+  255.255.255.255       ff-ff-ff-ff-ff-ff     static    
+
+val getArpTable: unit -> string
+val displayArpTable: unit -> unit
+val it: unit = ()
+
+
+Script Errors:
+
+          use process = new Process()
+  ------------^^^^^^^
+
+stdin(17,13): warning FS0046: The identifier 'process' is reserved for future use by F#
+
+
+          process.StartInfo <- startInfo
+  --------^^^^^^^
+
+stdin(18,9): warning FS0046: The identifier 'process' is reserved for future use by F#
+
+
+          process.Start() |> ignore
+  --------^^^^^^^
+
+stdin(19,9): warning FS0046: The identifier 'process' is reserved for future use by F#
+
+
+          let output = process.StandardOutput.ReadToEnd()
+  ---------------------^^^^^^^
+
+stdin(20,22): warning FS0046: The identifier 'process' is reserved for future use by F#
+
+
+          let error = process.StandardError.ReadToEnd()
+  --------------------^^^^^^^
+
+stdin(21,21): warning FS0046: The identifier 'process' is reserved for future use by F#
+
+
+          process.WaitForExit()
+  --------^^^^^^^
+
+stdin(22,9): warning FS0046: The identifier 'process' is reserved for future use by F#
+
+
+          if process.ExitCode = 0 then
+  -----------^^^^^^^
+
+stdin(24,12): warning FS0046: The identifier 'process' is reserved for future use by F#
+
+
+3/08/2024 9:42:56 PM: Script Output:
+
+Microsoft (R) F# Interactive version 12.8.301.0 for F# 8.0
+Copyright (c) Microsoft Corporation. All Rights Reserved.
+
+For help type #help;;
+
+> ARP Table:
+
+Interface: 192.168.73.128 --- 0x7
+  Internet Address      Physical Address      Type
+  192.168.73.2          00-50-56-f8-8d-4d     dynamic   
+  192.168.73.254        00-50-56-e2-9b-4d     dynamic   
+  192.168.73.255        ff-ff-ff-ff-ff-ff     static    
+  224.0.0.22            01-00-5e-00-00-16     static    
+  224.0.0.251           01-00-5e-00-00-fb     static    
+  224.0.0.252           01-00-5e-00-00-fc     static    
+  239.255.255.250       01-00-5e-7f-ff-fa     static    
+  255.255.255.255       ff-ff-ff-ff-ff-ff     static    
+
+val getArpTable: unit -> string
+val displayArpTable: unit -> unit
+val it: unit = ()
+
+
+Script Errors:
+
+          use process = new Process()
+  ------------^^^^^^^
+
+stdin(17,13): warning FS0046: The identifier 'process' is reserved for future use by F#
+
+
+          process.StartInfo <- startInfo
+  --------^^^^^^^
+
+stdin(18,9): warning FS0046: The identifier 'process' is reserved for future use by F#
+
+
+          process.Start() |> ignore
+  --------^^^^^^^
+
+stdin(19,9): warning FS0046: The identifier 'process' is reserved for future use by F#
+
+
+          let output = process.StandardOutput.ReadToEnd()
+  ---------------------^^^^^^^
+
+stdin(20,22): warning FS0046: The identifier 'process' is reserved for future use by F#
+
+
+          let error = process.StandardError.ReadToEnd()
+  --------------------^^^^^^^
+
+stdin(21,21): warning FS0046: The identifier 'process' is reserved for future use by F#
+
+
+          process.WaitForExit()
+  --------^^^^^^^
+
+stdin(22,9): warning FS0046: The identifier 'process' is reserved for future use by F#
+
+
+          if process.ExitCode = 0 then
+  -----------^^^^^^^
+
+stdin(24,12): warning FS0046: The identifier 'process' is reserved for future use by F#
+
+
+3/08/2024 9:42:56 PM: Script Output:
+
+Microsoft (R) F# Interactive version 12.8.301.0 for F# 8.0
+Copyright (c) Microsoft Corporation. All Rights Reserved.
+
+For help type #help;;
+
+> ARP Table:
+
+Interface: 192.168.73.128 --- 0x7
+  Internet Address      Physical Address      Type
+  192.168.73.2          00-50-56-f8-8d-4d     dynamic   
+  192.168.73.254        00-50-56-e2-9b-4d     dynamic   
+  192.168.73.255        ff-ff-ff-ff-ff-ff     static    
+  224.0.0.22            01-00-5e-00-00-16     static    
+  224.0.0.251           01-00-5e-00-00-fb     static    
+  224.0.0.252           01-00-5e-00-00-fc     static    
+  239.255.255.250       01-00-5e-7f-ff-fa     static    
+  255.255.255.255       ff-ff-ff-ff-ff-ff     static    
+
+val getArpTable: unit -> string
+val displayArpTable: unit -> unit
+val it: unit = ()
+
+
+Script Errors:
+
+          use process = new Process()
+  ------------^^^^^^^
+
+stdin(17,13): warning FS0046: The identifier 'process' is reserved for future use by F#
+
+
+          process.StartInfo <- startInfo
+  --------^^^^^^^
+
+stdin(18,9): warning FS0046: The identifier 'process' is reserved for future use by F#
+
+
+          process.Start() |> ignore
+  --------^^^^^^^
+
+stdin(19,9): warning FS0046: The identifier 'process' is reserved for future use by F#
+
+
+          let output = process.StandardOutput.ReadToEnd()
+  ---------------------^^^^^^^
+
+stdin(20,22): warning FS0046: The identifier 'process' is reserved for future use by F#
+
+
+          let error = process.StandardError.ReadToEnd()
+  --------------------^^^^^^^
+
+stdin(21,21): warning FS0046: The identifier 'process' is reserved for future use by F#
+
+
+          process.WaitForExit()
+  --------^^^^^^^
+
+stdin(22,9): warning FS0046: The identifier 'process' is reserved for future use by F#
+
+
+          if process.ExitCode = 0 then
+  -----------^^^^^^^
+
+stdin(24,12): warning FS0046: The identifier 'process' is reserved for future use by F#
+
+
+3/08/2024 9:42:56 PM: Script Output:
+
+Microsoft (R) F# Interactive version 12.8.301.0 for F# 8.0
+Copyright (c) Microsoft Corporation. All Rights Reserved.
+
+For help type #help;;
+
+> ARP Table:
+
+Interface: 192.168.73.128 --- 0x7
+  Internet Address      Physical Address      Type
+  192.168.73.2          00-50-56-f8-8d-4d     dynamic   
+  192.168.73.254        00-50-56-e2-9b-4d     dynamic   
+  192.168.73.255        ff-ff-ff-ff-ff-ff     static    
+  224.0.0.22            01-00-5e-00-00-16     static    
+  224.0.0.251           01-00-5e-00-00-fb     static    
+  224.0.0.252           01-00-5e-00-00-fc     static    
+  239.255.255.250       01-00-5e-7f-ff-fa     static    
+  255.255.255.255       ff-ff-ff-ff-ff-ff     static    
+
+val getArpTable: unit -> string
+val displayArpTable: unit -> unit
+val it: unit = ()
+
+
+Script Errors:
+
+          use process = new Process()
+  ------------^^^^^^^
+
+stdin(17,13): warning FS0046: The identifier 'process' is reserved for future use by F#
+
+
+          process.StartInfo <- startInfo
+  --------^^^^^^^
+
+stdin(18,9): warning FS0046: The identifier 'process' is reserved for future use by F#
+
+
+          process.Start() |> ignore
+  --------^^^^^^^
+
+stdin(19,9): warning FS0046: The identifier 'process' is reserved for future use by F#
+
+
+          let output = process.StandardOutput.ReadToEnd()
+  ---------------------^^^^^^^
+
+stdin(20,22): warning FS0046: The identifier 'process' is reserved for future use by F#
+
+
+          let error = process.StandardError.ReadToEnd()
+  --------------------^^^^^^^
+
+stdin(21,21): warning FS0046: The identifier 'process' is reserved for future use by F#
+
+
+          process.WaitForExit()
+  --------^^^^^^^
+
+stdin(22,9): warning FS0046: The identifier 'process' is reserved for future use by F#
+
+
+          if process.ExitCode = 0 then
+  -----------^^^^^^^
+
+stdin(24,12): warning FS0046: The identifier 'process' is reserved for future use by F#
+
+
+3/08/2024 9:43:29 PM: Script Output:
+
+Microsoft (R) F# Interactive version 12.8.301.0 for F# 8.0
+Copyright (c) Microsoft Corporation. All Rights Reserved.
+
+For help type #help;;
+
+> Command Output:
+C:\Users\61423\Desktop\F# projects\C2
+
+val runCommand: command: string -> string option
+val command: string = "cd"
+val it: unit = ()
+
+
+Script Errors:
+
+3/08/2024 9:43:30 PM: Script Output:
+
+Microsoft (R) F# Interactive version 12.8.301.0 for F# 8.0
+Copyright (c) Microsoft Corporation. All Rights Reserved.
+
+For help type #help;;
+
+> Command Output:
+C:\Users\61423\Desktop\F# projects\C2
+
+val runCommand: command: string -> string option
+val command: string = "cd"
+val it: unit = ()
+
+
+Script Errors:
+
+3/08/2024 9:43:46 PM: Script Output:
+
+Microsoft (R) F# Interactive version 12.8.301.0 for F# 8.0
+Copyright (c) Microsoft Corporation. All Rights Reserved.
+
+For help type #help;;
+
+> Command Output:
+C:\Users\61423\Desktop\F# projects\C2
+
+val runCommand: command: string -> string option
+val command: string = "cd"
+val it: unit = ()
+
+
+Script Errors:
+
+3/08/2024 9:43:47 PM: Script Output:
+
+Microsoft (R) F# Interactive version 12.8.301.0 for F# 8.0
+Copyright (c) Microsoft Corporation. All Rights Reserved.
+
+For help type #help;;
+
+> Command Output:
+C:\Users\61423\Desktop\F# projects\C2
+
+val runCommand: command: string -> string option
+val command: string = "cd"
+val it: unit = ()
+
+
+Script Errors:
+
+3/08/2024 9:43:47 PM: Script Output:
+
+Microsoft (R) F# Interactive version 12.8.301.0 for F# 8.0
+Copyright (c) Microsoft Corporation. All Rights Reserved.
+
+For help type #help;;
+
+> Command Output:
+C:\Users\61423\Desktop\F# projects\C2
+
+val runCommand: command: string -> string option
+val command: string = "cd"
+val it: unit = ()
+
+
+Script Errors:
+
+3/08/2024 9:43:47 PM: Script Output:
+
+Microsoft (R) F# Interactive version 12.8.301.0 for F# 8.0
+Copyright (c) Microsoft Corporation. All Rights Reserved.
+
+For help type #help;;
+
+> Command Output:
+C:\Users\61423\Desktop\F# projects\C2
+
+val runCommand: command: string -> string option
+val command: string = "cd"
+val it: unit = ()
+
+
+Script Errors:
+
+3/08/2024 9:43:47 PM: Script Output:
+
+Microsoft (R) F# Interactive version 12.8.301.0 for F# 8.0
+Copyright (c) Microsoft Corporation. All Rights Reserved.
+
+For help type #help;;
+
+> Command Output:
+C:\Users\61423\Desktop\F# projects\C2
+
+val runCommand: command: string -> string option
+val command: string = "cd"
+val it: unit = ()
+
+
+Script Errors:
+
+3/08/2024 9:43:47 PM: Script Output:
+
+Microsoft (R) F# Interactive version 12.8.301.0 for F# 8.0
+Copyright (c) Microsoft Corporation. All Rights Reserved.
+
+For help type #help;;
+
+> Command Output:
+C:\Users\61423\Desktop\F# projects\C2
+
+val runCommand: command: string -> string option
+val command: string = "cd"
+val it: unit = ()
+
+
+Script Errors:
+
+3/08/2024 9:43:47 PM: Script Output:
+
+Microsoft (R) F# Interactive version 12.8.301.0 for F# 8.0
+Copyright (c) Microsoft Corporation. All Rights Reserved.
+
+For help type #help;;
+
+> Command Output:
+C:\Users\61423\Desktop\F# projects\C2
+
+val runCommand: command: string -> string option
+val command: string = "cd"
+val it: unit = ()
+
+
+Script Errors:
+
+3/08/2024 9:43:47 PM: Script Output:
+
+Microsoft (R) F# Interactive version 12.8.301.0 for F# 8.0
+Copyright (c) Microsoft Corporation. All Rights Reserved.
+
+For help type #help;;
+
+> Command Output:
+C:\Users\61423\Desktop\F# projects\C2
+
+val runCommand: command: string -> string option
+val command: string = "cd"
+val it: unit = ()
+
+
+Script Errors:
+
+3/08/2024 9:43:47 PM: Script Output:
+
+Microsoft (R) F# Interactive version 12.8.301.0 for F# 8.0
+Copyright (c) Microsoft Corporation. All Rights Reserved.
+
+For help type #help;;
+
+> Command Output:
+C:\Users\61423\Desktop\F# projects\C2
+
+val runCommand: command: string -> string option
+val command: string = "cd"
+val it: unit = ()
+
+
+Script Errors:
 

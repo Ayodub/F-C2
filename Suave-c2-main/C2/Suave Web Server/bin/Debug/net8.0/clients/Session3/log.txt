@@ -1,0 +1,17 @@
+3/08/2024 9:44:29 PM: Script Output:
+
+Microsoft (R) F# Interactive version 12.8.301.0 for F# 8.0
+Copyright (c) Microsoft Corporation. All Rights Reserved.
+
+For help type #help;;
+
+> Command Output:
+desktop-k85sjo9\61423
+
+val runCommand: command: string -> string option
+val command: string = "whoami"
+val it: unit = ()
+
+
+Script Errors:
+
